@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rahyaar — Coming soon</title>
+<meta name="description" content="Rahyaar connects students and young professionals with mentors who have walked the same path. Free, private, in Dari and English. Launching soon." />
+
+<meta property="og:title" content="Rahyaar — Coming soon" />
+<meta property="og:description" content="A mentorship platform connecting students and young professionals with mentors who have walked the same path. Free, private, in Dari and English." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://rahyaar.org" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23E6A23C'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%230C333D'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%23103F4A'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink:      #0C333D;
+    --ink-2:    #103F4A;
+    --line:     #1E4E59;
+    --amber:    #E6A23C;
+    --paper:    #EAF1F3;
+    --muted:    #9DB4BC;
+    --serif:    "Fraunces", Georgia, "Times New Roman", serif;
+    --sans:     "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --persian:  "Vazirmatn", "Noto Naskh Arabic", Tahoma, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Language toggle */
+  .lang {
+    position: fixed;
+    top: 1.25rem;
+    inset-inline-end: 1.5rem;
+    z-index: 10;
+    display: inline-flex;
+    gap: 2px;
+    padding: 3px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(16,63,74,0.75);
+  }
+  .lang-btn {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+    padding: 0.38rem 0.85rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color .18s ease, background .18s ease;
+  }
+  .lang-btn[data-lang="fa"] { font-family: var(--persian); }
+  .lang-btn:hover { color: var(--paper); }
+  .lang-btn[aria-pressed="true"] { color: var(--ink); background: var(--amber); }
+  .lang-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(230,162,60,0.3); }
+
+  .stage {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem 1.5rem 1.5rem;
+    overflow: hidden;
+  }
+
+  .halo {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: min(760px, 120vw);
+    height: min(760px, 120vw);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(230,162,60,0.16) 0%, rgba(230,162,60,0.05) 38%, rgba(230,162,60,0) 66%);
+    pointer-events: none;
+    animation: breathe 7s ease-in-out infinite;
+  }
+
+  .card { position: relative; width: 100%; max-width: 640px; text-align: center; }
+
+  .mark { width: 96px; height: 96px; margin: 0 auto 2rem; }
+  .mark svg { display: block; width: 100%; height: 100%; }
+  .needle-group { transform-origin: 50% 50%; animation: settle 9s ease-in-out infinite; }
+
+  .eyebrow {
+    margin: 0 0 1.1rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--amber);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  body.fa .eyebrow { font-family: var(--persian); letter-spacing: normal; text-transform: none; font-size: 0.98rem; }
+
+  .wordmark { margin: 0; line-height: 0.98; }
+  .wm-main { display: block; font-family: var(--serif); font-weight: 500; font-size: clamp(3.4rem, 9vw, 6rem); letter-spacing: -0.01em; color: #fff; }
+  .wm-sub  { display: block; margin-top: 0.55rem; font-family: var(--persian); font-weight: 400; font-size: clamp(1.05rem, 2.6vw, 1.4rem); color: var(--amber); opacity: 0.85; }
+  body.fa .wm-main { font-family: var(--persian); letter-spacing: normal; }
+  body.fa .wm-sub  { font-family: var(--serif); }
+
+  .tagline {
+    margin: 1.7rem auto 0;
+    max-width: 32ch;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+    line-height: 1.35;
+    color: var(--paper);
+  }
+  body.fa .tagline { font-family: var(--persian); font-style: normal; line-height: 1.65; max-width: 34ch; }
+
+  .lede {
+    margin: 1.15rem auto 0;
+    max-width: 48ch;
+    font-size: clamp(0.98rem, 1.5vw, 1.08rem);
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  body.fa .lede { font-family: var(--persian); line-height: 1.95; max-width: 44ch; }
+
+  footer {
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+  }
+  footer a { color: var(--paper); text-decoration: none; }
+  footer a:hover { color: var(--amber); }
+  .dot { margin: 0 0.6rem; opacity: 0.5; }
+
+  .reveal { opacity: 0; transform: translateY(14px); animation: rise .8s cubic-bezier(.2,.7,.3,1) forwards; }
+  .d1 { animation-delay: .05s; } .d2 { animation-delay: .16s; }
+  .d3 { animation-delay: .28s; } .d4 { animation-delay: .4s; }
+  .d5 { animation-delay: .52s; }
+
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+  @keyframes breathe { 0%,100% { opacity: .75; transform: translate(-50%,-50%) scale(1); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.06); } }
+  @keyframes settle { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+    .halo, .needle-group { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="lang" role="group" aria-label="Language / زبان">
+    <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" class="lang-btn" data-lang="fa" aria-pressed="false">دری</button>
+  </div>
+
+  <main class="stage">
+    <div class="halo" aria-hidden="true"></div>
+
+    <section class="card">
+      <div class="mark reveal d1" aria-hidden="true">
+        <svg viewBox="0 0 96 96" role="img" aria-label="Rahyaar">
+          <circle cx="48" cy="48" r="46" fill="var(--amber)" />
+          <g class="needle-group">
+            <path d="M48 20 L57 48 L48 55 L39 48 Z" fill="var(--ink)" />
+            <path d="M48 76 L39 48 L48 55 L57 48 Z" fill="var(--ink-2)" />
+            <circle cx="48" cy="48" r="4" fill="var(--amber)" stroke="var(--ink)" stroke-width="2" />
+          </g>
+        </svg>
+      </div>
+
+      <p class="eyebrow reveal d2" data-en="Coming soon" data-fa="به‌زودی">Coming soon</p>
+
+      <h1 class="wordmark reveal d2">
+        <span class="wm-main" dir="auto" data-en="Rahyaar" data-fa="رهیار">Rahyaar</span>
+        <span class="wm-sub" dir="auto" data-en="رهیار" data-fa="Rahyaar">رهیار</span>
+      </h1>
+
+      <p class="tagline reveal d3" data-en="Every young person deserves someone who has walked the path ahead of them." data-fa="هر جوانی سزاوار کسی است که راه را پیش از او پیموده باشد.">Every young person deserves someone who has walked the path ahead of them.</p>
+
+      <p class="lede reveal d4" data-en="A mentorship platform connecting students and young professionals with mentors who have walked the same path. Free, private, and in Dari and English." data-fa="رهیار یک سکوی مربی‌گری است که دانشجویان و جوانان را با مربیانی که همان مسیر را پیموده‌اند پیوند می‌دهد. رایگان، خصوصی و به دو زبان دری و انگلیسی.">A mentorship platform connecting students and young professionals with mentors who have walked the same path. Free, private, and in Dari and English.</p>
+    </section>
+  </main>
+
+  <footer class="reveal d5" dir="ltr">
+    <a href="https://rahyaar.org">rahyaar.org</a>
+    <span class="dot">·</span>
+    <span>© 2026 Rahyaar</span>
+  </footer>
+
+<script>
+  (function () {
+    const btns = Array.prototype.slice.call(document.querySelectorAll('.lang-btn'));
+    const nodes = Array.prototype.slice.call(document.querySelectorAll('[data-en]'));
+    function setLang(lang) {
+      const fa = lang === 'fa';
+      document.documentElement.lang = fa ? 'prs' : 'en';
+      document.documentElement.dir = fa ? 'rtl' : 'ltr';
+      document.body.classList.toggle('fa', fa);
+      nodes.forEach(function (n) { n.textContent = fa ? n.getAttribute('data-fa') : n.getAttribute('data-en'); });
+      btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+      document.title = fa ? 'رهیار — به‌زودی' : 'Rahyaar — Coming soon';
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); }); });
+    const nav = (navigator.language || '').toLowerCase();
+    setLang(/^(fa|prs)/.test(nav) ? 'fa' : 'en');
+  })();
+</script>
+</body>
+</html>
