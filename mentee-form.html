@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Find a mentor · Rahyaar</title>
+<meta name="description" content="Get matched with a mentor who has walked your path. Free and private." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23E6A23C'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%230C333D'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%23103F4A'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#0C333D;--ink2:#103F4A;--amber:#E6A23C;--amber2:#F0B457;--paper:#F6FAFB;--card:#FFFFFF;--line:#DCE5E8;--text:#17303A;--muted:#5E7580;--serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",system-ui,sans-serif;}
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--paper);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .hero{background:var(--ink);color:#fff;padding:2.4rem 1.5rem 2rem;text-align:center}
+  .mark{width:56px;height:56px;margin:0 auto .8rem}
+  .mark svg{display:block;width:100%;height:100%}
+  .brand{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:#EAF1F3;opacity:.85}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,5vw,2.6rem);margin:.2rem 0 .5rem}
+  .hero p{max-width:46ch;margin:0 auto;color:#CFE0E6;font-size:1rem}
+  main{max-width:640px;margin:0 auto;padding:1.5rem}
+  .note{background:#EAF4F6;border:1px solid #CFE6EA;border-radius:10px;padding:.9rem 1.1rem;font-size:.9rem;color:#0C333D;margin-bottom:1.5rem}
+  .note strong{display:block;margin-bottom:.2rem}
+  form{display:flex;flex-direction:column;gap:1.35rem}
+  .field{display:flex;flex-direction:column;gap:.45rem;border:0;padding:0;margin:0;min-width:0}
+  label,legend{font-weight:600;font-size:.95rem;color:var(--ink);padding:0}
+  legend{margin-bottom:.1rem}
+  .hint{font-weight:400;font-size:.82rem;color:var(--muted)}
+  input[type=text],input[type=email],select,textarea{font-family:var(--sans);font-size:1rem;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:9px;padding:.7rem .85rem;width:100%}
+  textarea{min-height:80px;resize:vertical}
+  input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(230,162,60,.22)}
+  .opts{display:flex;flex-direction:column;gap:.5rem}
+  .opt{display:flex;align-items:flex-start;gap:.55rem;font-weight:400;font-size:.95rem;color:var(--text);cursor:pointer}
+  .opt input{margin-top:.2rem;accent-color:var(--amber);width:auto;flex:none}
+  .opt .d{color:var(--muted)}
+  .req{color:var(--amber)}
+  button{font-family:var(--sans);font-size:1.05rem;font-weight:600;color:var(--ink);background:var(--amber);border:none;border-radius:10px;padding:.9rem 1.2rem;cursor:pointer;transition:background .18s}
+  button:hover{background:var(--amber2)}
+  .err{color:#C0392B;font-size:.9rem;min-height:1em;margin:0}
+  .thanks{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:2rem 1.5rem;text-align:center}
+  .thanks h2{font-family:var(--serif);color:var(--ink);margin:0 0 .4rem}
+  .thanks p{color:var(--muted);margin:0}
+  footer{text-align:center;padding:1.5rem;color:var(--muted);font-size:.85rem}
+  footer a{color:var(--ink);text-decoration:none}
+  .hide{display:none}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 96 96"><circle cx="48" cy="48" r="46" fill="#E6A23C"/><path d="M48 20 L57 48 L48 55 L39 48 Z" fill="#0C333D"/><path d="M48 76 L39 48 L48 55 L57 48 Z" fill="#103F4A"/><circle cx="48" cy="48" r="4" fill="#E6A23C" stroke="#0C333D" stroke-width="2"/></svg>
+    </div>
+    <div class="brand">Rahyaar</div>
+    <h1>Find a mentor</h1>
+    <p>Get matched with someone who has walked your path and can help with your next step. Free, and private.</p>
+  </header>
+
+  <main>
+    <div class="note">
+      <strong>Your privacy comes first</strong>
+      You do not need to use your real name, and you never have to share anything that identifies you. This is free, always. All you need is an email so we can reach you.
+    </div>
+
+    <form id="form">
+      <input type="hidden" name="form_type" value="Mentee" />
+      <input type="hidden" name="_subject" value="New Rahyaar mentee sign-up" />
+      <input type="text" name="_gotcha" class="hide" tabindex="-1" autocomplete="off" />
+
+      <div class="field">
+        <label for="display_name">A name to call you <span class="req">*</span></label>
+        <span class="hint">Any name you like. You do not need to use your real name.</span>
+        <input id="display_name" name="display_name" type="text" required />
+      </div>
+
+      <div class="field">
+        <label for="email">Email <span class="req">*</span></label>
+        <span class="hint">For your account and updates. Kept private.</span>
+        <input id="email" name="email" type="email" required />
+      </div>
+
+      <div class="field">
+        <label for="age_range">Your age <span class="req">*</span></label>
+        <select id="age_range" name="age_range" required>
+          <option value="" disabled selected>Choose one</option>
+          <option>Under 18</option><option>18 to 24</option><option>25 to 34</option><option>35+</option>
+        </select>
+      </div>
+
+      <fieldset class="field">
+        <legend>Preferred language <span class="req">*</span></legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="language" value="Dari" required /> Dari</label>
+          <label class="opt"><input type="radio" name="language" value="English" /> English</label>
+          <label class="opt"><input type="radio" name="language" value="Both" /> Both</label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="region">Country or region you are in <span class="req">*</span></label>
+        <span class="hint">This helps us match time zones and find local resources. Keep it general if you prefer.</span>
+        <input id="region" name="region" type="text" required />
+      </div>
+
+      <div class="field">
+        <label for="goal">What is your goal <span class="req">*</span></label>
+        <select id="goal" name="goal" required>
+          <option value="" disabled selected>Choose one</option>
+          <option>Finish school and reach university</option>
+          <option>Undergraduate to master's or work</option>
+          <option>Master's to PhD or work</option>
+          <option>Change careers</option>
+          <option>Skilled migration</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="field">Field or area of interest <span class="req">*</span></label>
+        <input id="field" name="field" type="text" required />
+      </div>
+
+      <div class="field">
+        <label for="situation">Where are you now <span class="req">*</span></label>
+        <span class="hint">A sentence is enough, for example "final year of high school" or "working in retail, want to move into IT".</span>
+        <textarea id="situation" name="situation" required></textarea>
+      </div>
+
+      <fieldset class="field" data-min-one data-label="what you want help with">
+        <legend>What do you most want help with <span class="req">*</span></legend>
+        <span class="hint">Choose any that fit.</span>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="help_needed" value="Choosing a field" /> Choosing a field</label>
+          <label class="opt"><input type="checkbox" name="help_needed" value="Finding scholarships" /> Finding scholarships</label>
+          <label class="opt"><input type="checkbox" name="help_needed" value="Writing applications" /> Writing applications</label>
+          <label class="opt"><input type="checkbox" name="help_needed" value="Preparing for tests" /> Preparing for tests</label>
+          <label class="opt"><input type="checkbox" name="help_needed" value="Interviews" /> Interviews</label>
+          <label class="opt"><input type="checkbox" name="help_needed" value="Career direction" /> Career direction</label>
+          <label class="opt"><input type="checkbox" name="help_needed" value="Migration pathway" /> Migration pathway</label>
+          <label class="opt"><input type="checkbox" name="help_needed" value="Other" /> Other</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>Would you prefer a mentor of the same gender <span class="req">*</span></legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="same_gender" value="Yes" required /> Yes</label>
+          <label class="opt"><input type="radio" name="same_gender" value="No preference" /> No preference</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>Your gender</legend>
+        <span class="hint">Optional. Only used if you asked for a same-gender mentor.</span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="gender" value="Woman" /> Woman</label>
+          <label class="opt"><input type="radio" name="gender" value="Man" /> Man</label>
+          <label class="opt"><input type="radio" name="gender" value="Prefer not to say" /> Prefer not to say</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>Do you have reliable internet and a device <span class="req">*</span></legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="connectivity" value="Yes" required /> Yes</label>
+          <label class="opt"><input type="radio" name="connectivity" value="Limited" /> Limited</label>
+          <label class="opt"><input type="radio" name="connectivity" value="No" /> No</label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label class="opt"><input type="checkbox" name="agree" value="Agreed" required /> <span>I have read and agree to the community ground rules. <span class="req">*</span></span></label>
+      </div>
+
+      <div class="field">
+        <label for="other">Anything else you would like us to know</label>
+        <textarea id="other" name="other"></textarea>
+      </div>
+
+      <button type="submit">Sign up</button>
+      <p class="err" id="err" role="alert" aria-live="polite"></p>
+    </form>
+
+    <div class="thanks" id="thanks" tabindex="-1" hidden>
+      <h2>Thank you</h2>
+      <p>You are signed up. We will be in touch when we have a mentor who fits your goal and language.</p>
+    </div>
+  </main>
+
+  <footer><a href="https://rahyaar.org">rahyaar.org</a></footer>
+
+<script>
+  // Paste your Formspree endpoint between the quotes to collect responses,
+  // e.g. "https://formspree.io/f/abcdwxyz". Left empty, the form just shows a thank-you.
+  const FORM_ENDPOINT = "https://formspree.io/f/mppawyak";
+
+  const form = document.getElementById('form');
+  const errEl = document.getElementById('err');
+  const thanks = document.getElementById('thanks');
+  const note = document.querySelector('.note');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errEl.textContent = '';
+    const groups = form.querySelectorAll('[data-min-one]');
+    for (const g of groups) {
+      if (g.querySelectorAll('input[type=checkbox]:checked').length === 0) {
+        errEl.textContent = 'Please choose at least one option for: ' + g.getAttribute('data-label') + '.';
+        g.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+    }
+    if (FORM_ENDPOINT) {
+      try {
+        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+        if (!res.ok) throw new Error('bad');
+      } catch (err) {
+        errEl.textContent = 'Something went wrong sending the form. Please try again, or email hello@rahyaar.org.';
+        return;
+      }
+    }
+    form.hidden = true;
+    if (note) note.hidden = true;
+    thanks.hidden = false;
+    thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+</body>
+</html>
