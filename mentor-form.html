@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,13 +8,18 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23E6A23C'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%230C333D'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%23103F4A'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
-  :root{--ink:#0C333D;--ink2:#103F4A;--amber:#E6A23C;--amber2:#F0B457;--paper:#F6FAFB;--card:#FFFFFF;--line:#DCE5E8;--text:#17303A;--muted:#5E7580;--serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",system-ui,sans-serif;}
+  :root{--ink:#0C333D;--ink2:#103F4A;--amber:#E6A23C;--amber2:#F0B457;--paper:#F6FAFB;--card:#FFFFFF;--line:#DCE5E8;--text:#17303A;--muted:#5E7580;--serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",system-ui,sans-serif;--persian:"Vazirmatn","Noto Naskh Arabic",Tahoma,sans-serif;}
   *{box-sizing:border-box}
   html,body{margin:0}
   body{background:var(--paper);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
-  .hero{background:var(--ink);color:#fff;padding:2.4rem 1.5rem 2rem;text-align:center}
+  .lang{position:fixed;top:1rem;inset-inline-end:1rem;z-index:10;display:inline-flex;gap:2px;padding:3px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:#0C333D;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+  .lang-btn{font-family:var(--sans);font-size:.8rem;font-weight:600;color:#CFE0E6;background:transparent;border:none;border-radius:999px;padding:.35rem .8rem;line-height:1;cursor:pointer}
+  .lang-btn[data-lang="fa"]{font-family:var(--persian)}
+  .lang-btn[aria-pressed="true"]{color:var(--ink);background:var(--amber)}
+  .lang-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(230,162,60,.4)}
+  .hero{background:var(--ink);color:#fff;padding:2.6rem 1.5rem 2rem;text-align:center}
   .mark{width:56px;height:56px;margin:0 auto .8rem}
   .mark svg{display:block;width:100%;height:100%}
   .brand{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:#EAF1F3;opacity:.85}
@@ -45,22 +50,31 @@
   footer{text-align:center;padding:1.5rem;color:var(--muted);font-size:.85rem}
   footer a{color:var(--ink);text-decoration:none}
   .hide{display:none}
+  body.fa{font-family:var(--persian)}
+  body.fa .hero h1,body.fa .brand,body.fa .thanks h2{font-family:var(--persian)}
+  body.fa input,body.fa select,body.fa textarea,body.fa button{font-family:var(--persian)}
+  body.fa legend,body.fa label,body.fa .hint,body.fa .opt{line-height:1.7}
 </style>
 </head>
 <body>
+  <div class="lang" role="group" aria-label="Language / زبان">
+    <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" class="lang-btn" data-lang="fa" aria-pressed="false">دری</button>
+  </div>
+
   <header class="hero">
     <div class="mark" aria-hidden="true">
       <svg viewBox="0 0 96 96"><circle cx="48" cy="48" r="46" fill="#E6A23C"/><path d="M48 20 L57 48 L48 55 L39 48 Z" fill="#0C333D"/><path d="M48 76 L39 48 L48 55 L57 48 Z" fill="#103F4A"/><circle cx="48" cy="48" r="4" fill="#E6A23C" stroke="#0C333D" stroke-width="2"/></svg>
     </div>
-    <div class="brand">Rahyaar</div>
-    <h1>Become a mentor</h1>
-    <p>Guide a student or young professional who has been cut off from the mentorship most people take for granted. You can start small.</p>
+    <div class="brand" data-en="Rahyaar" data-fa="رهیار">Rahyaar</div>
+    <h1 data-en="Become a mentor" data-fa="مربی شوید">Become a mentor</h1>
+    <p data-en="Guide a student or young professional who has been cut off from the mentorship most people take for granted. You can start small." data-fa="جوان یا دانش‌آموزی را راهنمایی کنید که از داشتن مربی محروم بوده است. می‌توانید در حد کم شروع کنید.">Guide a student or young professional who has been cut off from the mentorship most people take for granted. You can start small.</p>
   </header>
 
   <main>
     <div class="note">
-      <strong>Before you start</strong>
-      Every mentor is verified before being matched. You will need a LinkedIn profile and five endorsers who can vouch for you. Mentoring here means guidance and application support, not tutoring.
+      <strong data-en="Before you start" data-fa="پیش از شروع">Before you start</strong>
+      <span data-en="Every mentor is verified before being matched. You will need a LinkedIn profile and five endorsers who can vouch for you. Mentoring here means guidance and application support, not tutoring." data-fa="هر مربی پیش از تخصیص تأیید می‌شود. به یک حساب لینکدین و پنج معرف نیاز دارید که شما را تأیید کنند. مربی‌گری در اینجا یعنی راهنمایی و کمک در درخواست‌ها، نه تدریس.">Every mentor is verified before being matched. You will need a LinkedIn profile and five endorsers who can vouch for you. Mentoring here means guidance and application support, not tutoring.</span>
     </div>
 
     <form id="form">
@@ -69,115 +83,121 @@
       <input type="text" name="_gotcha" class="hide" tabindex="-1" autocomplete="off" />
 
       <div class="field">
-        <label for="display_name">Your name, as you would like to appear <span class="req">*</span></label>
+        <label for="display_name"><span data-en="Your name, as you would like to appear" data-fa="نامی که می‌خواهید با آن نمایش داده شوید">Your name, as you would like to appear</span> <span class="req">*</span></label>
         <input id="display_name" name="display_name" type="text" required />
       </div>
 
       <div class="field">
-        <label for="email">Email <span class="req">*</span></label>
-        <input id="email" name="email" type="email" required />
+        <label for="email"><span data-en="Email" data-fa="ایمیل">Email</span> <span class="req">*</span></label>
+        <input id="email" name="email" type="email" dir="ltr" required />
       </div>
 
       <fieldset class="field">
-        <legend>Language you can mentor in <span class="req">*</span></legend>
+        <legend><span data-en="Language you can mentor in" data-fa="زبانی که می‌توانید با آن مربی‌گری کنید">Language you can mentor in</span> <span class="req">*</span></legend>
         <div class="opts">
-          <label class="opt"><input type="radio" name="language" value="Dari" required /> Dari</label>
-          <label class="opt"><input type="radio" name="language" value="English" /> English</label>
-          <label class="opt"><input type="radio" name="language" value="Both" /> Both</label>
+          <label class="opt"><input type="radio" name="language" value="Dari" required /> <span data-en="Dari" data-fa="دری">Dari</span></label>
+          <label class="opt"><input type="radio" name="language" value="English" /> <span data-en="English" data-fa="انگلیسی">English</span></label>
+          <label class="opt"><input type="radio" name="language" value="Both" /> <span data-en="Both" data-fa="هر دو">Both</span></label>
         </div>
       </fieldset>
 
       <div class="field">
-        <label for="region">Country or region you are based in <span class="req">*</span></label>
-        <span class="hint">No full address needed. This helps with time zones.</span>
+        <label for="region"><span data-en="Country or region you are based in" data-fa="کشور یا منطقه‌ای که در آن هستید">Country or region you are based in</span> <span class="req">*</span></label>
+        <span class="hint" data-en="No full address needed. This helps with time zones." data-fa="به آدرس کامل نیازی نیست. این برای هماهنگی زمانی کمک می‌کند.">No full address needed. This helps with time zones.</span>
         <input id="region" name="region" type="text" required />
       </div>
 
       <div class="field">
-        <label for="linkedin">LinkedIn profile URL <span class="req">*</span></label>
-        <input id="linkedin" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/..." required />
+        <label for="linkedin"><span data-en="LinkedIn profile URL" data-fa="نشانی پروفایل لینکدین">LinkedIn profile URL</span> <span class="req">*</span></label>
+        <input id="linkedin" name="linkedin" type="url" dir="ltr" placeholder="https://www.linkedin.com/in/..." required />
       </div>
 
       <div class="field">
-        <label for="education">Highest level of education <span class="req">*</span></label>
+        <label for="education"><span data-en="Highest level of education" data-fa="بالاترین سطح تحصیلات">Highest level of education</span> <span class="req">*</span></label>
         <select id="education" name="education" required>
-          <option value="" disabled selected>Choose one</option>
-          <option>Bachelor's</option><option>Master's</option><option>PhD</option><option>Other</option>
+          <option value="" disabled selected data-en="Choose one" data-fa="یکی را انتخاب کنید">Choose one</option>
+          <option value="Bachelor's" data-en="Bachelor's" data-fa="لیسانس">Bachelor's</option>
+          <option value="Master's" data-en="Master's" data-fa="ماستری">Master's</option>
+          <option value="PhD" data-en="PhD" data-fa="دکترا">PhD</option>
+          <option value="Other" data-en="Other" data-fa="دیگر">Other</option>
         </select>
       </div>
 
       <div class="field">
-        <label for="field">Field of study or expertise <span class="req">*</span></label>
+        <label for="field"><span data-en="Field of study or expertise" data-fa="رشته یا حوزه تخصص">Field of study or expertise</span> <span class="req">*</span></label>
         <input id="field" name="field" type="text" required />
       </div>
 
       <div class="field">
-        <label for="current_role">Current or most recent role and organization <span class="req">*</span></label>
+        <label for="current_role"><span data-en="Current or most recent role and organization" data-fa="سمت و سازمان فعلی یا اخیر">Current or most recent role and organization</span> <span class="req">*</span></label>
         <input id="current_role" name="current_role" type="text" required />
       </div>
 
       <div class="field">
-        <label for="experience">Years of professional experience <span class="req">*</span></label>
+        <label for="experience"><span data-en="Years of professional experience" data-fa="سال‌های تجربه کاری">Years of professional experience</span> <span class="req">*</span></label>
         <select id="experience" name="experience" required>
-          <option value="" disabled selected>Choose one</option>
-          <option>2 to 3</option><option>4 to 6</option><option>7 to 10</option><option>10+</option>
+          <option value="" disabled selected data-en="Choose one" data-fa="یکی را انتخاب کنید">Choose one</option>
+          <option value="2 to 3" data-en="2 to 3" data-fa="۲ تا ۳">2 to 3</option>
+          <option value="4 to 6" data-en="4 to 6" data-fa="۴ تا ۶">4 to 6</option>
+          <option value="7 to 10" data-en="7 to 10" data-fa="۷ تا ۱۰">7 to 10</option>
+          <option value="10+" data-en="10+" data-fa="۱۰+">10+</option>
         </select>
       </div>
 
-      <fieldset class="field" data-min-one data-label="journeys you can mentor">
-        <legend>Which journeys can you mentor <span class="req">*</span></legend>
-        <span class="hint">Choose any that fit.</span>
+      <fieldset class="field" data-min-one data-label="journeys you can mentor" data-label-fa="مسیرهایی که می‌توانید مربی‌گری کنید">
+        <legend><span data-en="Which journeys can you mentor" data-fa="در کدام مسیرها می‌توانید مربی‌گری کنید">Which journeys can you mentor</span> <span class="req">*</span></legend>
+        <span class="hint" data-en="Choose any that fit." data-fa="هر کدام که مناسب است انتخاب کنید.">Choose any that fit.</span>
         <div class="opts">
-          <label class="opt"><input type="checkbox" name="journeys" value="High school to university" /> High school to university</label>
-          <label class="opt"><input type="checkbox" name="journeys" value="Undergraduate to master's or work" /> Undergraduate to master's or work</label>
-          <label class="opt"><input type="checkbox" name="journeys" value="Master's to PhD or work" /> Master's to PhD or work</label>
-          <label class="opt"><input type="checkbox" name="journeys" value="Career change" /> Career change</label>
-          <label class="opt"><input type="checkbox" name="journeys" value="Skilled migration" /> Skilled migration</label>
+          <label class="opt"><input type="checkbox" name="journeys" value="High school to university" /> <span data-en="High school to university" data-fa="از مکتب تا دانشگاه">High school to university</span></label>
+          <label class="opt"><input type="checkbox" name="journeys" value="Undergraduate to master's or work" /> <span data-en="Undergraduate to master's or work" data-fa="از لیسانس تا ماستری یا کار">Undergraduate to master's or work</span></label>
+          <label class="opt"><input type="checkbox" name="journeys" value="Master's to PhD or work" /> <span data-en="Master's to PhD or work" data-fa="از ماستری تا دکترا یا کار">Master's to PhD or work</span></label>
+          <label class="opt"><input type="checkbox" name="journeys" value="Career change" /> <span data-en="Career change" data-fa="تغییر مسیر شغلی">Career change</span></label>
+          <label class="opt"><input type="checkbox" name="journeys" value="Skilled migration" /> <span data-en="Skilled migration" data-fa="مهاجرت تخصصی">Skilled migration</span></label>
         </div>
       </fieldset>
 
       <fieldset class="field">
-        <legend>How much time can you give <span class="req">*</span></legend>
-        <span class="hint">You can always do more later.</span>
+        <legend><span data-en="How much time can you give" data-fa="چقدر وقت می‌توانید بگذارید">How much time can you give</span> <span class="req">*</span></legend>
+        <span class="hint" data-en="You can always do more later." data-fa="همیشه می‌توانید بعداً بیشتر کنید.">You can always do more later.</span>
         <div class="opts">
-          <label class="opt"><input type="radio" name="tier" value="Light" required /> <span>Light. <span class="d">Answer questions when you have time.</span></span></label>
-          <label class="opt"><input type="radio" name="tier" value="Standard" /> <span>Standard. <span class="d">One mentee, a monthly check-in.</span></span></label>
-          <label class="opt"><input type="radio" name="tier" value="Deep" /> <span>Deep. <span class="d">One mentee, weekly through a season.</span></span></label>
+          <label class="opt"><input type="radio" name="tier" value="Light" required /> <span><span data-en="Light." data-fa="سبک.">Light.</span> <span class="d" data-en="Answer questions when you have time." data-fa="هر وقت وقت داشتید به پرسش‌ها پاسخ دهید.">Answer questions when you have time.</span></span></label>
+          <label class="opt"><input type="radio" name="tier" value="Standard" /> <span><span data-en="Standard." data-fa="معمولی.">Standard.</span> <span class="d" data-en="One mentee, a monthly check-in." data-fa="یک متربی، یک تماس ماهانه.">One mentee, a monthly check-in.</span></span></label>
+          <label class="opt"><input type="radio" name="tier" value="Deep" /> <span><span data-en="Deep." data-fa="عمیق.">Deep.</span> <span class="d" data-en="One mentee, weekly through a season." data-fa="یک متربی، هفتگی در طول یک فصل.">One mentee, weekly through a season.</span></span></label>
         </div>
       </fieldset>
 
       <fieldset class="field">
-        <legend>Your gender <span class="req">*</span></legend>
-        <span class="hint">Used only for matching, when a mentee asks for the same gender.</span>
+        <legend><span data-en="Your gender" data-fa="جنسیت شما">Your gender</span> <span class="req">*</span></legend>
+        <span class="hint" data-en="Used only for matching, when a mentee asks for the same gender." data-fa="فقط برای هم‌سان‌سازی استفاده می‌شود، وقتی متربی مربی هم‌جنس بخواهد.">Used only for matching, when a mentee asks for the same gender.</span>
         <div class="opts">
-          <label class="opt"><input type="radio" name="gender" value="Woman" required /> Woman</label>
-          <label class="opt"><input type="radio" name="gender" value="Man" /> Man</label>
-          <label class="opt"><input type="radio" name="gender" value="Prefer not to say" /> Prefer not to say</label>
+          <label class="opt"><input type="radio" name="gender" value="Woman" required /> <span data-en="Woman" data-fa="زن">Woman</span></label>
+          <label class="opt"><input type="radio" name="gender" value="Man" /> <span data-en="Man" data-fa="مرد">Man</span></label>
+          <label class="opt"><input type="radio" name="gender" value="Prefer not to say" /> <span data-en="Prefer not to say" data-fa="ترجیح می‌دهم نگویم">Prefer not to say</span></label>
         </div>
       </fieldset>
 
       <div class="field">
-        <label for="endorsers">Your five endorsers <span class="req">*</span></label>
-        <span class="hint">Their names and how each one knows you. We will follow up with them.</span>
+        <label for="endorsers"><span data-en="Your five endorsers" data-fa="پنج معرف شما">Your five endorsers</span> <span class="req">*</span></label>
+        <span class="hint" data-en="Their names and how each one knows you. We will follow up with them." data-fa="نام آن‌ها و اینکه هر کدام چطور شما را می‌شناسد. ما با آن‌ها تماس می‌گیریم.">Their names and how each one knows you. We will follow up with them.</span>
         <textarea id="endorsers" name="endorsers" required></textarea>
       </div>
 
       <div class="field">
-        <label class="opt"><input type="checkbox" name="agree" value="Agreed" required /> <span>I have read and agree to the Code of Conduct and Safeguarding rules. <span class="req">*</span></span></label>
+        <label class="opt"><input type="checkbox" name="agree" value="Agreed" required /> <span><span data-en="I have read and agree to the Code of Conduct and Safeguarding rules." data-fa="قوانین رفتار و حفاظت را خوانده‌ام و می‌پذیرم.">I have read and agree to the Code of Conduct and Safeguarding rules.</span> <span class="req">*</span></span></label>
       </div>
 
       <div class="field">
-        <label for="other">Anything else you would like us to know</label>
+        <label for="other" data-en="Anything else you would like us to know" data-fa="چیز دیگری که می‌خواهید بدانیم">Anything else you would like us to know</label>
         <textarea id="other" name="other"></textarea>
       </div>
 
-      <button type="submit">Submit application</button>
+      <button type="submit" data-en="Submit application" data-fa="ارسال درخواست">Submit application</button>
       <p class="err" id="err" role="alert" aria-live="polite"></p>
     </form>
 
     <div class="thanks" id="thanks" tabindex="-1" hidden>
-      <h2>Thank you</h2>
-      <p>We have your application and will be in touch about the next step, including verifying your endorsers.</p>
+      <h2 data-en="Thank you" data-fa="سپاسگزاریم">Thank you</h2>
+      <p data-en="We have your application and will be in touch about the next step, including verifying your endorsers." data-fa="درخواست شما را دریافت کردیم و برای گام بعدی، از جمله تأیید معرف‌ها، با شما در تماس خواهیم بود.">We have your application and will be in touch about the next step, including verifying your endorsers.</p>
     </div>
   </main>
 
@@ -188,36 +208,58 @@
   // e.g. "https://formspree.io/f/abcdwxyz". Left empty, the form just shows a thank-you.
   const FORM_ENDPOINT = "https://formspree.io/f/mppawyak";
 
-  const form = document.getElementById('form');
-  const errEl = document.getElementById('err');
-  const thanks = document.getElementById('thanks');
-  const note = document.querySelector('.note');
+  const MSG = {
+    en: { pick: "Please choose at least one option for: ", fail: "Something went wrong sending the form. Please try again, or email Contact@Rahyaar.org." },
+    fa: { pick: "لطفاً برای این بخش دست‌کم یک گزینه انتخاب کنید: ", fail: "در ارسال فرم مشکلی پیش آمد. دوباره تلاش کنید یا به Contact@Rahyaar.org ایمیل بزنید." }
+  };
+  let LANG = "en";
+  const nodes = Array.prototype.slice.call(document.querySelectorAll("[data-en]"));
+  const btns = Array.prototype.slice.call(document.querySelectorAll(".lang-btn"));
+  const form = document.getElementById("form");
+  const errEl = document.getElementById("err");
+  const thanks = document.getElementById("thanks");
+  const note = document.querySelector(".note");
 
-  form.addEventListener('submit', async function (e) {
+  function setLang(l) {
+    LANG = l;
+    const fa = l === "fa";
+    document.documentElement.lang = fa ? "prs" : "en";
+    document.documentElement.dir = fa ? "rtl" : "ltr";
+    document.body.classList.toggle("fa", fa);
+    nodes.forEach(function (n) { n.textContent = fa ? n.getAttribute("data-fa") : n.getAttribute("data-en"); });
+    btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l)); });
+  }
+  btns.forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); }); });
+
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
-    errEl.textContent = '';
-    const groups = form.querySelectorAll('[data-min-one]');
+    errEl.textContent = "";
+    const groups = form.querySelectorAll("[data-min-one]");
     for (const g of groups) {
-      if (g.querySelectorAll('input[type=checkbox]:checked').length === 0) {
-        errEl.textContent = 'Please choose at least one option for: ' + g.getAttribute('data-label') + '.';
-        g.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (g.querySelectorAll("input[type=checkbox]:checked").length === 0) {
+        const label = LANG === "fa" ? g.getAttribute("data-label-fa") : g.getAttribute("data-label");
+        errEl.textContent = MSG[LANG].pick + label + ".";
+        g.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
       }
     }
     if (FORM_ENDPOINT) {
       try {
-        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
-        if (!res.ok) throw new Error('bad');
+        const res = await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(form) });
+        if (!res.ok) throw new Error("bad");
       } catch (err) {
-        errEl.textContent = 'Something went wrong sending the form. Please try again, or email hello@rahyaar.org.';
+        errEl.textContent = MSG[LANG].fail;
         return;
       }
     }
     form.hidden = true;
     if (note) note.hidden = true;
     thanks.hidden = false;
-    thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    thanks.scrollIntoView({ behavior: "smooth", block: "center" });
   });
+
+  const nav = (navigator.language || "").toLowerCase();
+  setLang(/^(fa|prs)/.test(nav) ? "fa" : "en");
 </script>
 </body>
 </html>
