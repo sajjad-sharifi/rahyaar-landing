@@ -4,35 +4,39 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rahyaar — Mentorship Platform</title>
-<meta name="description" content="Connect with mentors who have walked your path. Free, private mentorship in Dari and English for students and young professionals." />
+<meta name="description" content="Connect with mentors who have walked your path. Free, private mentorship in Farsi and English for students and young professionals." />
 
 <meta property="og:title" content="Rahyaar — Mentorship Platform" />
 <meta property="og:description" content="Connect with mentors who have walked your path. Free, private mentorship for students and young professionals." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://rahyaar.org" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23E6A23C'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%23103F4A'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%230C333D'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23E6A23C'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%236366F1'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%23F97316'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%234F46E5'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%236366F1'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
   :root {
-    --primary:      #0C333D;
-    --primary-2:    #103F4A;
-    --accent:       #E6A23C;
-    --accent-2:     #F0B457;
-    --background:   #F6FAFB;
+    --primary:      #1E1B4B;
+    --primary-light: #312E81;
+    --accent:       #6366F1;
+    --accent-bright: #818CF8;
+    --secondary:    #F97316;
+    --success:      #10B981;
+    --background:   #F8FAFC;
     --surface:      #FFFFFF;
-    --text:         #17303A;
-    --muted:        #5E7580;
-    --border:       #DCE5E8;
-    --success:      #27AE60;
-    --error:        #E74C3C;
-    --serif:        "Fraunces", Georgia, serif;
-    --sans:         "Hanken Grotesk", system-ui, -apple-system, sans-serif;
-    --persian:      "Vazirmatn", system-ui, sans-serif;
+    --text:         #1E293B;
+    --text-light:   #64748B;
+    --border:       #E2E8F0;
+    --shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md:    0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg:    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl:    0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --sans:         "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --serif:        "Sora", system-ui, sans-serif;
+    --farsi:        "Vazirmatn", system-ui, sans-serif;
   }
 
   * { box-sizing: border-box; }
@@ -44,21 +48,22 @@
     font-family: var(--sans);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Header & Navigation */
   header {
-    background: var(--primary);
-    color: white;
-    padding: 1.5rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow-sm);
   }
 
   .header-wrapper {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -71,17 +76,24 @@
     gap: 0.75rem;
     text-decoration: none;
     font-family: var(--serif);
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    transition: color 0.2s;
+  }
+
+  .logo:hover {
     color: var(--accent);
   }
 
   .logo-icon {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+    border-radius: 8px;
   }
 
   .nav-right {
@@ -92,40 +104,40 @@
 
   .lang-toggle {
     display: inline-flex;
-    gap: 2px;
+    gap: 0;
     padding: 4px;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid var(--border);
     border-radius: 6px;
-    background: rgba(255,255,255,0.05);
+    background: var(--background);
   }
 
   .lang-btn {
     font-family: var(--sans);
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: rgba(255,255,255,0.7);
+    color: var(--text-light);
     background: transparent;
     border: none;
     border-radius: 4px;
-    padding: 0.35rem 0.75rem;
+    padding: 0.5rem 0.875rem;
     cursor: pointer;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
   }
 
   .lang-btn[aria-pressed="true"] {
-    color: var(--primary);
-    background: var(--accent);
+    color: white;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
   }
 
-  .lang-btn:hover {
-    color: white;
+  .lang-btn:hover:not([aria-pressed="true"]) {
+    color: var(--text);
   }
 
   /* Hero Section */
   .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: white;
-    padding: 4rem 1.5rem;
+    padding: 5rem 1.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -134,13 +146,24 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -50%;
+    right: -10%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -5%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(230,162,60,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
     border-radius: 50%;
-    transform: translate(20%, -30%);
     pointer-events: none;
   }
 
@@ -154,35 +177,37 @@
   .hero-mark {
     width: 120px;
     height: 120px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 2.5rem;
     animation: float 3s ease-in-out infinite;
   }
 
   .hero-mark svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 4px 20px rgba(230,162,60,0.3));
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
   }
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-15px); }
   }
 
   .hero h1 {
     font-family: var(--serif);
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    font-weight: 600;
-    margin: 0 0 1rem;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin: 0 0 1.25rem;
     line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   .hero p {
-    font-size: clamp(1rem, 2vw, 1.1rem);
-    color: rgba(255,255,255,0.9);
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    line-height: 1.7;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+    font-weight: 500;
   }
 
   /* CTA Buttons */
@@ -206,14 +231,14 @@
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    transition: all .3s cubic-bezier(0.2, 0, 0.38, 0.9);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-md);
     min-height: 48px;
   }
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-lg);
   }
 
   .btn:active {
@@ -221,58 +246,56 @@
   }
 
   .btn-primary {
-    background: var(--accent);
-    color: var(--primary);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+    color: white;
   }
 
   .btn-primary:hover {
-    background: var(--accent-2);
+    box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
   }
 
   .btn-secondary {
     background: white;
-    color: var(--primary);
+    color: var(--accent);
     border: 2px solid white;
   }
 
   .btn-secondary:hover {
     background: var(--background);
-    border-color: var(--accent);
+    color: var(--primary);
   }
 
-  .btn-icon::before {
-    font-size: 1.2rem;
-  }
-
-  /* Features Section */
+  /* Sections */
   .section {
-    padding: 4rem 1.5rem;
-    max-width: 1200px;
+    padding: 5rem 1.5rem;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
   .section-title {
     font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 600;
+    font-size: clamp(1.875rem, 4vw, 2.8rem);
+    font-weight: 700;
     text-align: center;
-    margin: 0 0 1rem;
+    margin: 0 0 0.5rem;
     color: var(--primary);
+    letter-spacing: -0.02em;
   }
 
   .section-subtitle {
     text-align: center;
-    color: var(--muted);
+    color: var(--text-light);
     margin: 0 0 3rem;
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
   }
 
+  /* Features Grid */
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
   }
 
@@ -281,51 +304,55 @@
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid var(--border);
-    transition: all .3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
   }
 
   .feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
     border-color: var(--accent);
   }
 
   .feature-icon {
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    border-radius: 8px;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
   }
 
   .feature-card h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 700;
     margin: 0 0 0.75rem;
     color: var(--primary);
+    letter-spacing: -0.01em;
   }
 
   .feature-card p {
-    color: var(--muted);
+    color: var(--text-light);
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.8;
+    font-size: 0.9375rem;
   }
 
   /* Stats Section */
   .stats {
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: white;
-    padding: 3rem 1.5rem;
-    margin-top: 4rem;
+    padding: 4rem 1.5rem;
+    margin-top: 2rem;
+    border-radius: 16px;
   }
 
   .stats-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -334,74 +361,93 @@
   }
 
   .stat-item h4 {
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-family: var(--serif);
     margin: 0 0 0.5rem;
-    color: var(--accent);
+    background: linear-gradient(135deg, var(--accent-bright), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
   }
 
   .stat-item p {
     margin: 0;
-    opacity: 0.9;
+    opacity: 0.95;
+    font-weight: 500;
   }
 
   /* Footer */
   footer {
     background: var(--primary);
     color: white;
-    padding: 3rem 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 4rem 1.5rem;
     margin-top: 4rem;
   }
 
   .footer-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
     margin-bottom: 2rem;
   }
 
   .footer-section h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0 0 1rem;
-    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin: 0 0 1.25rem;
+    color: var(--accent-bright);
   }
 
-  .footer-section p, .footer-section a {
+  .footer-section p {
+    margin: 0 0 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+  }
+
+  .footer-section a {
+    display: block;
     margin: 0 0 0.75rem;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    transition: color .2s ease;
+    transition: color 0.2s;
   }
 
   .footer-section a:hover {
-    color: var(--accent);
+    color: var(--accent-bright);
   }
 
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 2rem;
     text-align: center;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.6);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
   }
 
   .contact-highlight {
-    background: rgba(230,162,60,0.1);
-    border-left: 3px solid var(--accent);
+    background: rgba(99, 102, 241, 0.15);
+    border-left: 4px solid var(--accent-bright);
     padding: 1.5rem;
     border-radius: 8px;
     margin-top: 1.5rem;
   }
 
-  .contact-highlight a {
-    color: var(--accent-2);
+  .contact-highlight p {
+    margin: 0 0 0.5rem;
     font-weight: 600;
+  }
+
+  .contact-highlight a {
+    color: var(--accent-bright) !important;
+    font-weight: 700;
+    font-size: 1.0625rem;
   }
 
   /* Responsive */
@@ -413,11 +459,12 @@
 
     .nav-right {
       width: 100%;
-      justify-content: space-between;
+      justify-content: center;
     }
 
     .cta-group {
       flex-direction: column;
+      width: 100%;
     }
 
     .btn {
@@ -426,58 +473,82 @@
     }
 
     .hero {
-      padding: 2.5rem 1.5rem;
+      padding: 3rem 1.5rem;
     }
 
     .section {
-      padding: 2.5rem 1.5rem;
+      padding: 3rem 1.5rem;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
     }
   }
 
   /* Dark mode support */
   @media (prefers-color-scheme: dark) {
-    body {
-      background: #0a1f26;
-      color: #e0e8eb;
+    :root {
+      --background: #0F172A;
+      --surface: #1E293B;
+      --text: #F1F5F9;
+      --text-light: #94A3B8;
+      --border: #334155;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom-color: var(--border);
     }
 
     .feature-card {
-      background: #1a3a45;
-      border-color: #2a4a55;
+      background: var(--surface);
+      border-color: var(--border);
     }
 
-    .feature-card h3 {
-      color: #e0e8eb;
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--accent);
+      border-color: var(--border);
     }
 
-    .feature-card p {
-      color: #a0b0b8;
+    .btn-secondary:hover {
+      background: var(--border);
     }
   }
 
   /* Animations */
   .fade-in {
-    animation: fadeIn .6s ease-in;
+    animation: fadeIn 0.6s ease-in;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
   }
 
-  /* Persian/Dari Styles */
+  /* Farsi Styles */
   body.fa {
-    font-family: var(--persian);
+    font-family: var(--farsi);
     direction: rtl;
   }
 
   body.fa .hero h1,
   body.fa .section-title {
-    font-family: var(--persian);
+    font-family: var(--farsi);
   }
 
   body.fa .feature-card h3 {
-    font-family: var(--persian);
+    font-family: var(--farsi);
+  }
+
+  body.fa .footer-section h3 {
+    font-family: var(--farsi);
   }
 </style>
 </head>
@@ -488,17 +559,17 @@
       <a href="/" class="logo">
         <div class="logo-icon">
           <svg viewBox="0 0 96 96" width="32" height="32">
-            <circle cx="48" cy="48" r="46" fill="currentColor" opacity="0.3"/>
-            <circle cx="48" cy="48" r="46" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M48 20 L57 48 L48 55 L39 48 Z" fill="currentColor"/>
+            <circle cx="48" cy="48" r="46" fill="white" opacity="0.2"/>
+            <path d="M48 20 L57 48 L48 55 L39 48 Z" fill="white"/>
+            <path d="M48 76 L39 48 L48 55 L57 48 Z" fill="white" opacity="0.8"/>
           </svg>
         </div>
         <span>Rahyaar</span>
       </a>
       <div class="nav-right">
         <div class="lang-toggle" role="group" aria-label="Language">
-          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" class="lang-btn" data-lang="fa" aria-pressed="false">دری</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">English</button>
+          <button type="button" class="lang-btn" data-lang="fa" aria-pressed="false">فارسی</button>
         </div>
       </div>
     </div>
@@ -509,85 +580,87 @@
     <div class="hero-content fade-in">
       <div class="hero-mark" aria-hidden="true">
         <svg viewBox="0 0 96 96">
-          <circle cx="48" cy="48" r="46" fill="var(--accent)"/>
-          <path d="M48 20 L57 48 L48 55 L39 48 Z" fill="var(--primary)"/>
-          <path d="M48 76 L39 48 L48 55 L57 48 Z" fill="var(--primary-2)"/>
-          <circle cx="48" cy="48" r="4" fill="var(--accent)" stroke="var(--primary)" stroke-width="2"/>
+          <circle cx="48" cy="48" r="46" fill="#6366F1"/>
+          <path d="M48 20 L57 48 L48 55 L39 48 Z" fill="#F97316"/>
+          <path d="M48 76 L39 48 L48 55 L57 48 Z" fill="#4F46E5"/>
+          <circle cx="48" cy="48" r="4" fill="#6366F1" stroke="#FFF" stroke-width="2"/>
         </svg>
       </div>
       
-      <h1 data-en="Find Your Path Forward" data-fa="مسیرتان را جلو ببرید">Find Your Path Forward</h1>
-      <p data-en="Connect with experienced mentors who have walked your path. Get free, private guidance in Dari or English." data-fa="با مربیان با تجربه‌ای ارتباط برقرار کنید که همین راه را رفته‌اند. راهنمایی رایگان و خصوصی به دری یا انگلیسی دریافت کنید.">Connect with experienced mentors who have walked your path. Get free, private guidance in Dari or English.</p>
+      <h1 data-en="Find Your Path Forward" data-fa="مسیر آینده‌تان را کنار یکی از متخصصان بروند">Find Your Path Forward</h1>
+      <p data-en="Connect with experienced mentors who have walked your path. Get free, private guidance in Farsi or English." data-fa="با مربیان با تجربه‌ای ارتباط برقرار کنید که مسیری شبیه به شما را طی کرده‌اند. راهنمایی رایگان و محرمانه به فارسی یا انگلیسی دریافت کنید.">Connect with experienced mentors who have walked your path. Get free, private guidance in Farsi or English.</p>
       
       <div class="cta-group">
-        <a href="/mentee-form.html" class="btn btn-primary btn-icon" data-en="Find a Mentor →" data-fa="← مربی پیدا کنید">Find a Mentor →</a>
-        <a href="/mentor-form.html" class="btn btn-secondary btn-icon" data-en="Become a Mentor →" data-fa="← مربی شوید">Become a Mentor →</a>
+        <a href="/mentee-form.html" class="btn btn-primary" data-en="Find a Mentor →" data-fa="← پیدا کردن مربی">Find a Mentor →</a>
+        <a href="/mentor-form.html" class="btn btn-secondary" data-en="Become a Mentor →" data-fa="← تبدیل شدن به مربی">Become a Mentor →</a>
       </div>
     </div>
   </section>
 
   <!-- Features Section -->
   <section class="section">
-    <h2 class="section-title" data-en="Why Rahyaar?" data-fa="چرا رهیار؟">Why Rahyaar?</h2>
-    <p class="section-subtitle" data-en="Designed for you" data-fa="برای شما طراحی شده">Designed for you</p>
+    <h2 class="section-title" data-en="Why Choose Rahyaar?" data-fa="چرا رهیار را انتخاب کنید؟">Why Choose Rahyaar?</h2>
+    <p class="section-subtitle" data-en="Designed for your success" data-fa="برای موفقیت شما طراحی شده">Designed for your success</p>
     
     <div class="features-grid">
       <div class="feature-card fade-in">
         <div class="feature-icon">🔒</div>
-        <h3 data-en="100% Private" data-fa="۱۰۰% خصوصی">100% Private</h3>
-        <p data-en="Your data stays safe. Share only what you're comfortable with. No real names required." data-fa="داده‌های شما ایمن می‌مانند. فقط آنچه را که راحت هستید به اشتراک بگذارید. نام واقعی لازم نیست.">Your data stays safe. Share only what you're comfortable with. No real names required.</p>
+        <h3 data-en="100% Private & Secure" data-fa="۱۰۰% محرمانه و امن">100% Private & Secure</h3>
+        <p data-en="Your privacy is paramount. Share only what you're comfortable with—no real names required." data-fa="حریم خصوصی شما برای ما اولویت است. تنها آنچه راحت هستید به اشتراک بگذارید و نام واقعی لازم نیست.">Your privacy is paramount. Share only what you're comfortable with—no real names required.</p>
       </div>
       
       <div class="feature-card fade-in">
         <div class="feature-icon">💰</div>
         <h3 data-en="Completely Free" data-fa="کاملاً رایگان">Completely Free</h3>
-        <p data-en="No hidden costs. No subscription fees. Mentorship should be accessible to everyone." data-fa="بدون هزینه پنهان. بدون هزینه اشتراک. مربی‌گری باید برای همه قابل دسترسی باشد.">No hidden costs. No subscription fees. Mentorship should be accessible to everyone.</p>
+        <p data-en="No hidden costs or subscription fees. Quality mentorship should be accessible to everyone." data-fa="بدون هزینه پنهان یا هزینه‌های اشتراکی. مربی‌گری درخت‌مند باید برای همه قابل دسترسی باشد.">No hidden costs or subscription fees. Quality mentorship should be accessible to everyone.</p>
       </div>
       
       <div class="feature-card fade-in">
         <div class="feature-icon">🌍</div>
         <h3 data-en="Bilingual Support" data-fa="پشتیبانی دو‌زبانه">Bilingual Support</h3>
-        <p data-en="Communicate in Dari or English. Mentors and mentees matched by language preference." data-fa="به دری یا انگلیسی ارتباط برقرار کنید. مربیان و شاگردان بر اساس ترجیح زبان هم‌سان شوند.">Communicate in Dari or English. Mentors and mentees matched by language preference.</p>
+        <p data-en="Communicate fluently in Farsi or English. Matched mentors speak your preferred language." data-fa="به راحتی به فارسی یا انگلیسی صحبت کنید. مربیان از شما در زبان ترجیح‌شده‌تان سخن می‌رانند.">Communicate fluently in Farsi or English. Matched mentors speak your preferred language.</p>
       </div>
       
       <div class="feature-card fade-in">
         <div class="feature-icon">✅</div>
-        <h3 data-en="Verified Mentors" data-fa="مربیان تأیید‌شده">Verified Mentors</h3>
-        <p data-en="Every mentor is vetted and has real-world experience. Build trust with confidence." data-fa="هر مربی بررسی‌شده و تجربه واقعی دارد. با اعتماد پیش بروید.">Every mentor is vetted and has real-world experience. Build trust with confidence.</p>
+        <h3 data-en="Vetted Mentors" data-fa="مربیان تایید‌شده">Vetted Mentors</h3>
+        <p data-en="Every mentor is carefully verified with real professional experience. Mentorship you can trust." data-fa="هر مربی به دقت بررسی‌شده و دارای تجربه‌ی حرفه‌ای واقعی است. مربی‌گریی که می‌توانید به آن اعتماد کنید.">Every mentor is carefully verified with real professional experience. Mentorship you can trust.</p>
       </div>
       
       <div class="feature-card fade-in">
         <div class="feature-icon">🎯</div>
-        <h3 data-en="Goal-Focused" data-fa="متمرکز بر اهداف">Goal-Focused</h3>
-        <p data-en="Whether school, university, or career—we match you with someone who gets it." data-fa="اعم از مکتب، دانشگاه یا شغل - ما شما را با کسی هم‌سان می‌کنیم که درک کند.">Whether school, university, or career—we match you with someone who gets it.</p>
+        <h3 data-en="Goal-Oriented" data-fa="محور‌شده بر اهداف">Goal-Oriented</h3>
+        <p data-en="Whether education, career change, or migration—we match you with someone who understands your journey." data-fa="چه تحصیل، تغییر شغل، یا مهاجرت—ما شما را با کسی هم‌سان می‌کنیم که سفرتان را درک کند.">Whether education, career change, or migration—we match you with someone who understands your journey.</p>
       </div>
       
       <div class="feature-card fade-in">
         <div class="feature-icon">🤝</div>
-        <h3 data-en="Community First" data-fa="جامعه در اولویت">Community First</h3>
-        <p data-en="Built for Hazara students and young professionals. By community, for community." data-fa="برای دانش‌آموزان و جوانان حرفه‌ای هزاره ساخته شده. از سوی جامعه، برای جامعه.">Built for Hazara students and young professionals. By community, for community.</p>
+        <h3 data-en="Community-Driven" data-fa="سازمان‌دهی توسط جامعه">Community-Driven</h3>
+        <p data-en="Built by and for the Hazara community. Supporting your dreams and ambitions." data-fa="ساخته‌شده توسط و برای جامعه هزاره. حمایت از رویاهای و آرمان‌های شما.">Built by and for the Hazara community. Supporting your dreams and ambitions.</p>
       </div>
     </div>
   </section>
 
   <!-- Stats Section -->
-  <section class="stats">
-    <div class="stats-content">
-      <div class="stat-item">
-        <h4 data-en="100%" data-fa="۱۰۰%">100%</h4>
-        <p data-en="Free mentorship" data-fa="مربی‌گری رایگان">Free mentorship</p>
-      </div>
-      <div class="stat-item">
-        <h4 data-en="2 Languages" data-fa="۲ زبان">2 Languages</h4>
-        <p data-en="Dari & English" data-fa="دری و انگلیسی">Dari & English</p>
-      </div>
-      <div class="stat-item">
-        <h4 data-en="Private" data-fa="خصوصی">Private</h4>
-        <p data-en="Your choice" data-fa="انتخاب شما">Your choice</p>
-      </div>
-      <div class="stat-item">
-        <h4 data-en="Verified" data-fa="تأیید‌شده">Verified</h4>
-        <p data-en="All mentors vetted" data-fa="همه مربیان بررسی">All mentors vetted</p>
+  <section class="section">
+    <div class="stats">
+      <div class="stats-content">
+        <div class="stat-item">
+          <h4 data-en="100%" data-fa="۱۰۰%">100%</h4>
+          <p data-en="Free mentorship" data-fa="مربی‌گری رایگان">Free mentorship</p>
+        </div>
+        <div class="stat-item">
+          <h4 data-en="2 Languages" data-fa="۲ زبان">2 Languages</h4>
+          <p data-en="Farsi & English" data-fa="فارسی و انگلیسی">Farsi & English</p>
+        </div>
+        <div class="stat-item">
+          <h4 data-en="Confidential" data-fa="محتفظ">Confidential</h4>
+          <p data-en="Your choice matters" data-fa="انتخاب شما اهمیت دارد">Your choice matters</p>
+        </div>
+        <div class="stat-item">
+          <h4 data-en="Expert Verified" data-fa="تایید‌شده توسط متخصصان">Expert Verified</h4>
+          <p data-en="All mentors vetted" data-fa="تمام مربیان بررسی‌شده">All mentors vetted</p>
+        </div>
       </div>
     </div>
   </section>
@@ -596,20 +669,21 @@
   <footer>
     <div class="footer-content">
       <div class="footer-section">
-        <h3 data-en="About" data-fa="درباره">About</h3>
-        <p data-en="Rahyaar connects students and young professionals with mentors who understand their journey." data-fa="رهیار دانش‌آموزان و جوانان حرفه‌ای را با مربیانی متصل می‌کند که سفر آن‌ها را درک می‌کنند.">Rahyaar connects students and young professionals with mentors who understand their journey.</p>
+        <h3 data-en="About Rahyaar" data-fa="درباره رهیار">About Rahyaar</h3>
+        <p data-en="Connecting talented students and young professionals with mentors who've been through it all. Your success is our mission." data-fa="دانش‌آموزان با استعداد و جوانان حرفه‌ای را با مربیانی متصل می‌کنیم که از هر چیزی گذشته‌اند. موفقیت شما مأموریت ما است.">Connecting talented students and young professionals with mentors who've been through it all. Your success is our mission.</p>
       </div>
       
       <div class="footer-section">
-        <h3 data-en="Get Started" data-fa="شروع کنید">Get Started</h3>
-        <a href="/mentee-form.html" data-en="Find a Mentor" data-fa="مربی پیدا کنید">Find a Mentor</a>
-        <a href="/mentor-form.html" data-en="Become a Mentor" data-fa="مربی شوید">Become a Mentor</a>
+        <h3 data-en="Quick Links" data-fa="پیوندهای سریع">Quick Links</h3>
+        <a href="/mentee-form.html" data-en="Find a Mentor" data-fa="پیدا کردن مربی">Find a Mentor</a>
+        <a href="/mentor-form.html" data-en="Become a Mentor" data-fa="تبدیل شدن به مربی">Become a Mentor</a>
+        <a href="/" data-en="Home" data-fa="صفحه اصلی">Home</a>
       </div>
       
       <div class="footer-section">
-        <h3 data-en="Contact" data-fa="تماس">Contact</h3>
+        <h3 data-en="Get in Touch" data-fa="تماس بگیرید">Get in Touch</h3>
         <div class="contact-highlight">
-          <p data-en="Questions?" data-fa="سؤالی دارید؟">Questions?</p>
+          <p data-en="Have questions?" data-fa="سؤالی دارید؟">Have questions?</p>
           <a href="mailto:contact@rahyaar.org">contact@rahyaar.org</a>
         </div>
       </div>
@@ -627,16 +701,12 @@
     
     function setLang(lang) {
       const fa = lang === 'fa';
-      document.documentElement.lang = fa ? 'prs' : 'en';
+      document.documentElement.lang = fa ? 'fa' : 'en';
       document.documentElement.dir = fa ? 'rtl' : 'ltr';
       document.body.classList.toggle('fa', fa);
       
       nodes.forEach(function (n) { 
-        if (n.tagName === 'A' || n.tagName === 'BUTTON') {
-          n.textContent = fa ? n.getAttribute('data-fa') : n.getAttribute('data-en');
-        } else {
-          n.textContent = fa ? n.getAttribute('data-fa') : n.getAttribute('data-en');
-        }
+        n.textContent = fa ? n.getAttribute('data-fa') : n.getAttribute('data-en');
       });
       
       btns.forEach(function (b) { 
@@ -653,7 +723,7 @@
     });
     
     const nav = (navigator.language || '').toLowerCase();
-    setLang(/^(fa|prs)/.test(nav) ? 'fa' : 'en');
+    setLang(/^fa/.test(nav) ? 'fa' : 'en');
   })();
 </script>
 </body>
