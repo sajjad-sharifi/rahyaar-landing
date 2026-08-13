@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://rahyaar.org" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%236366F1'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%23F97316'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%234F46E5'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%236366F1'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23475569'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%237C3AED'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%23334155'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23475569'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,12 +19,10 @@
 
 <style>
   :root {
-    --primary:      #1E1B4B;
-    --primary-light: #312E81;
-    --accent:       #6366F1;
-    --accent-bright: #818CF8;
-    --secondary:    #F97316;
-    --success:      #10B981;
+    --primary:      #334155;
+    --primary-light: #475569;
+    --accent:       #7C3AED;
+    --accent-light: #A78BFA;
     --background:   #F8FAFC;
     --surface:      #FFFFFF;
     --text:         #1E293B;
@@ -92,7 +90,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+    background: var(--accent);
     border-radius: 8px;
   }
 
@@ -126,7 +124,7 @@
 
   .lang-btn[aria-pressed="true"] {
     color: white;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+    background: var(--accent);
   }
 
   .lang-btn:hover:not([aria-pressed="true"]) {
@@ -150,7 +148,7 @@
     right: -10%;
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
   }
@@ -162,7 +160,7 @@
     left: -5%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
   }
@@ -246,12 +244,13 @@
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+    background: var(--accent);
     color: white;
   }
 
   .btn-primary:hover {
-    box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
+    background: var(--accent-light);
+    box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.3);
   }
 
   .btn-secondary {
@@ -317,14 +316,14 @@
   .feature-icon {
     width: 64px;
     height: 64px;
-    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    background: var(--accent);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
   }
 
   .feature-card h3 {
@@ -364,10 +363,7 @@
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-family: var(--serif);
     margin: 0 0 0.5rem;
-    background: linear-gradient(135deg, var(--accent-bright), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent-light);
     font-weight: 700;
   }
 
@@ -400,7 +396,7 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 0 0 1.25rem;
-    color: var(--accent-bright);
+    color: var(--accent-light);
   }
 
   .footer-section p {
@@ -418,7 +414,7 @@
   }
 
   .footer-section a:hover {
-    color: var(--accent-bright);
+    color: var(--accent-light);
   }
 
   .footer-bottom {
@@ -432,8 +428,8 @@
   }
 
   .contact-highlight {
-    background: rgba(99, 102, 241, 0.15);
-    border-left: 4px solid var(--accent-bright);
+    background: rgba(124, 58, 237, 0.15);
+    border-left: 4px solid var(--accent-light);
     padding: 1.5rem;
     border-radius: 8px;
     margin-top: 1.5rem;
@@ -445,7 +441,7 @@
   }
 
   .contact-highlight a {
-    color: var(--accent-bright) !important;
+    color: var(--accent-light) !important;
     font-weight: 700;
     font-size: 1.0625rem;
   }
@@ -580,15 +576,15 @@
     <div class="hero-content fade-in">
       <div class="hero-mark" aria-hidden="true">
         <svg viewBox="0 0 96 96">
-          <circle cx="48" cy="48" r="46" fill="#6366F1"/>
-          <path d="M48 20 L57 48 L48 55 L39 48 Z" fill="#F97316"/>
-          <path d="M48 76 L39 48 L48 55 L57 48 Z" fill="#4F46E5"/>
-          <circle cx="48" cy="48" r="4" fill="#6366F1" stroke="#FFF" stroke-width="2"/>
+          <circle cx="48" cy="48" r="46" fill="#7C3AED"/>
+          <path d="M48 20 L57 48 L48 55 L39 48 Z" fill="#475569"/>
+          <path d="M48 76 L39 48 L48 55 L57 48 Z" fill="#334155"/>
+          <circle cx="48" cy="48" r="4" fill="#7C3AED" stroke="#FFF" stroke-width="2"/>
         </svg>
       </div>
       
-      <h1 data-en="Find Your Path Forward" data-fa="مسیر آینده‌تان را کنار یکی از متخصصان بروند">Find Your Path Forward</h1>
-      <p data-en="Connect with experienced mentors who have walked your path. Get free, private guidance in Farsi or English." data-fa="با مربیان با تجربه‌ای ارتباط برقرار کنید که مسیری شبیه به شما را طی کرده‌اند. راهنمایی رایگان و محرمانه به فارسی یا انگلیسی دریافت کنید.">Connect with experienced mentors who have walked your path. Get free, private guidance in Farsi or English.</p>
+      <h1 data-en="Find Your Path Forward" data-fa="مسیر موفقیت خود را بیابید">Find Your Path Forward</h1>
+      <p data-en="Connect with experienced mentors who have walked your path. Get free, private guidance in Farsi or English." data-fa="با مربیان با تجربه‌ای که مسیر شما را طی کرده‌اند ارتباط برقرار کنید. راهنمایی رایگان و محرمانه به فارسی یا انگلیسی دریافت کنید.">Connect with experienced mentors who have walked your path. Get free, private guidance in Farsi or English.</p>
       
       <div class="cta-group">
         <a href="/mentee-form.html" class="btn btn-primary" data-en="Find a Mentor →" data-fa="← پیدا کردن مربی">Find a Mentor →</a>
@@ -600,7 +596,7 @@
   <!-- Features Section -->
   <section class="section">
     <h2 class="section-title" data-en="Why Choose Rahyaar?" data-fa="چرا رهیار را انتخاب کنید؟">Why Choose Rahyaar?</h2>
-    <p class="section-subtitle" data-en="Designed for your success" data-fa="برای موفقیت شما طراحی شده">Designed for your success</p>
+    <p class="section-subtitle" data-en="Designed for your success" data-fa="برای موفقیت شما طراحی شده است">Designed for your success</p>
     
     <div class="features-grid">
       <div class="feature-card fade-in">
@@ -612,19 +608,19 @@
       <div class="feature-card fade-in">
         <div class="feature-icon">💰</div>
         <h3 data-en="Completely Free" data-fa="کاملاً رایگان">Completely Free</h3>
-        <p data-en="No hidden costs or subscription fees. Quality mentorship should be accessible to everyone." data-fa="بدون هزینه پنهان یا هزینه‌های اشتراکی. مربی‌گری درخت‌مند باید برای همه قابل دسترسی باشد.">No hidden costs or subscription fees. Quality mentorship should be accessible to everyone.</p>
+        <p data-en="No hidden costs or subscription fees. Quality mentorship should be accessible to everyone." data-fa="بدون هزینه پنهان یا هزینه‌های اشتراکی. مربی‌گری درجه‌ی اول باید برای همه قابل دسترسی باشد.">No hidden costs or subscription fees. Quality mentorship should be accessible to everyone.</p>
       </div>
       
       <div class="feature-card fade-in">
         <div class="feature-icon">🌍</div>
         <h3 data-en="Bilingual Support" data-fa="پشتیبانی دو‌زبانه">Bilingual Support</h3>
-        <p data-en="Communicate fluently in Farsi or English. Matched mentors speak your preferred language." data-fa="به راحتی به فارسی یا انگلیسی صحبت کنید. مربیان از شما در زبان ترجیح‌شده‌تان سخن می‌رانند.">Communicate fluently in Farsi or English. Matched mentors speak your preferred language.</p>
+        <p data-en="Communicate fluently in Farsi or English. Matched mentors speak your preferred language." data-fa="به راحتی به فارسی یا انگلیسی ارتباط برقرار کنید. مربیان از شما در زبان ترجیح‌شده‌تان سخن می‌رانند.">Communicate fluently in Farsi or English. Matched mentors speak your preferred language.</p>
       </div>
       
       <div class="feature-card fade-in">
         <div class="feature-icon">✅</div>
-        <h3 data-en="Vetted Mentors" data-fa="مربیان تایید‌شده">Vetted Mentors</h3>
-        <p data-en="Every mentor is carefully verified with real professional experience. Mentorship you can trust." data-fa="هر مربی به دقت بررسی‌شده و دارای تجربه‌ی حرفه‌ای واقعی است. مربی‌گریی که می‌توانید به آن اعتماد کنید.">Every mentor is carefully verified with real professional experience. Mentorship you can trust.</p>
+        <h3 data-en="Vetted Mentors" data-fa="مربیان تأیید‌شده">Vetted Mentors</h3>
+        <p data-en="Every mentor is carefully verified with real professional experience. Mentorship you can trust." data-fa="هر مربی به دقت بررسی‌شده و دارای تجربه‌ی حرفه‌ای واقعی است. مربی‌گری که می‌توانید به آن اعتماد کنید.">Every mentor is carefully verified with real professional experience. Mentorship you can trust.</p>
       </div>
       
       <div class="feature-card fade-in">
@@ -658,7 +654,7 @@
           <p data-en="Your choice matters" data-fa="انتخاب شما اهمیت دارد">Your choice matters</p>
         </div>
         <div class="stat-item">
-          <h4 data-en="Expert Verified" data-fa="تایید‌شده توسط متخصصان">Expert Verified</h4>
+          <h4 data-en="Expert Verified" data-fa="تأیید‌شده توسط متخصصان">Expert Verified</h4>
           <p data-en="All mentors vetted" data-fa="تمام مربیان بررسی‌شده">All mentors vetted</p>
         </div>
       </div>
