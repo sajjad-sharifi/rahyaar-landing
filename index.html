@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://rahyaar.org" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23E6A23C'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%230C333D'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%23103F4A'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23E6A23C'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%23103F4A'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%230C333D'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23E6A23C'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,6 +23,7 @@
     --ink-2:    #103F4A;
     --line:     #1E4E59;
     --amber:    #E6A23C;
+    --amber2:   #F0B457;
     --paper:    #EAF1F3;
     --muted:    #9DB4BC;
     --serif:    "Fraunces", Georgia, "Times New Roman", serif;
@@ -140,6 +141,48 @@
   }
   body.fa .lede { font-family: var(--persian); line-height: 1.95; max-width: 44ch; }
 
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem auto 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .cta-button {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .cta-button.primary {
+    background: var(--amber);
+    color: var(--ink);
+  }
+  
+  .cta-button.primary:hover {
+    background: var(--amber2);
+  }
+  
+  .cta-button.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--paper);
+    border: 1px solid var(--line);
+  }
+  
+  .cta-button.secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
   footer {
     padding: 1.5rem;
     text-align: center;
@@ -150,11 +193,13 @@
   footer a { color: var(--paper); text-decoration: none; }
   footer a:hover { color: var(--amber); }
   .dot { margin: 0 0.6rem; opacity: 0.5; }
+  .contact-info { margin: 0.5rem 0 0; font-size: 0.9rem; }
+  .contact-info a { color: var(--amber); }
 
   .reveal { opacity: 0; transform: translateY(14px); animation: rise .8s cubic-bezier(.2,.7,.3,1) forwards; }
   .d1 { animation-delay: .05s; } .d2 { animation-delay: .16s; }
   .d3 { animation-delay: .28s; } .d4 { animation-delay: .4s; }
-  .d5 { animation-delay: .52s; }
+  .d5 { animation-delay: .52s; } .d6 { animation-delay: .64s; }
 
   @keyframes rise { to { opacity: 1; transform: translateY(0); } }
   @keyframes breathe { 0%,100% { opacity: .75; transform: translate(-50%,-50%) scale(1); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.06); } }
@@ -187,23 +232,33 @@
         </svg>
       </div>
 
-      <p class="eyebrow reveal d2" data-en="Coming soon" data-fa="به‌زودی">Coming soon</p>
+      <p class="eyebrow reveal d2" data-en="Join us" data-fa="به ما بپیوندید">Join us</p>
 
       <h1 class="wordmark reveal d2">
         <span class="wm-main" dir="auto" data-en="Rahyaar" data-fa="رهیار">Rahyaar</span>
         <span class="wm-sub" dir="auto" data-en="رهیار" data-fa="Rahyaar">رهیار</span>
       </h1>
 
-      <p class="tagline reveal d3" data-en="Every young person deserves someone who has walked the path ahead of them." data-fa="هر جوانی سزاوار کسی است که راه را پیش از او پیموده باشد.">Every young person deserves someone who has walked the path ahead of them.</p>
+      <p class="tagline reveal d3" data-en="Every young person deserves someone who has walked the path ahead of them." data-fa="هر جوانی سزاوار کسی است که راه را پیش‌تر از او رفته باشد.">Every young person deserves someone who has walked the path ahead of them.</p>
 
-      <p class="lede reveal d4" data-en="A mentorship platform connecting students and young professionals with mentors who have walked the same path. Free, private, and in Dari and English." data-fa="رهیار یک سکوی مربی‌گری است که دانشجویان و جوانان را با مربیانی که همان مسیر را پیموده‌اند پیوند می‌دهد. رایگان، خصوصی و به دو زبان دری و انگلیسی.">A mentorship platform connecting students and young professionals with mentors who have walked the same path. Free, private, and in Dari and English.</p>
+      <p class="lede reveal d4" data-en="A mentorship platform connecting students and young professionals with mentors who have walked the same path. Free, private, and in Dari and English." data-fa="پلتفرمی برای مربی‌گری که دانش‌آموزان و جوانان حرفه‌ای را با مربیانی که همین راه را رفته‌اند، در هم می‌سازد. رایگان، خصوصی و به دری و انگلیسی.">A mentorship platform connecting students and young professionals with mentors who have walked the same path. Free, private, and in Dari and English.</p>
+
+      <div class="cta-buttons reveal d5">
+        <a href="/mentee-form.html" class="cta-button primary" data-en="Find a mentor" data-fa="مربی پیدا کنید">Find a mentor</a>
+        <a href="/mentor-form.html" class="cta-button secondary" data-en="Become a mentor" data-fa="مربی شوید">Become a mentor</a>
+      </div>
     </section>
   </main>
 
-  <footer class="reveal d5" dir="ltr">
-    <a href="https://rahyaar.org">rahyaar.org</a>
-    <span class="dot">·</span>
-    <span>© 2026 Rahyaar</span>
+  <footer class="reveal d6" dir="ltr">
+    <div>
+      <a href="https://rahyaar.org">rahyaar.org</a>
+      <span class="dot">·</span>
+      <span>© 2026 Rahyaar</span>
+    </div>
+    <div class="contact-info">
+      <span data-en="Questions? " data-fa="سؤالی دارید؟ ">Questions? </span><a href="mailto:contact@rahyaar.org">contact@rahyaar.org</a>
+    </div>
   </footer>
 
 <script>
@@ -215,9 +270,11 @@
       document.documentElement.lang = fa ? 'prs' : 'en';
       document.documentElement.dir = fa ? 'rtl' : 'ltr';
       document.body.classList.toggle('fa', fa);
-      nodes.forEach(function (n) { n.textContent = fa ? n.getAttribute('data-fa') : n.getAttribute('data-en'); });
+      nodes.forEach(function (n) { 
+        n.textContent = fa ? n.getAttribute('data-fa') : n.getAttribute('data-en'); 
+      });
       btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
-      document.title = fa ? 'رهیار — به‌زودی' : 'Rahyaar — Coming soon';
+      document.title = fa ? 'رهیار — به ما بپیوندید' : 'Rahyaar — Join us';
     }
     btns.forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); }); });
     const nav = (navigator.language || '').toLowerCase();
