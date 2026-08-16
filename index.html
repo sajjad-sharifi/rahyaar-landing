@@ -3,724 +3,291 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rahyaar — Mentorship Platform</title>
-<meta name="description" content="Connect with mentors who have walked your path. Free, private mentorship in Farsi and English for students and young professionals." />
+<title>Rahyaar: Mentorship for Hazara students and young professionals</title>
+<meta name="description" content="Free, private mentorship in Dari and English. Rahyaar connects Hazara students and young professionals with mentors who have walked the same path." />
+<link rel="canonical" href="https://rahyaar.org/" />
 
-<meta property="og:title" content="Rahyaar — Mentorship Platform" />
-<meta property="og:description" content="Connect with mentors who have walked your path. Free, private mentorship for students and young professionals." />
+<!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://rahyaar.org" />
+<meta property="og:site_name" content="Rahyaar" />
+<meta property="og:title" content="Rahyaar: Mentorship for Hazara students and young professionals" />
+<meta property="og:description" content="Free, private mentorship in Dari and English, connecting mentees with mentors who have walked the same path." />
+<meta property="og:url" content="https://rahyaar.org/" />
+<meta property="og:image" content="https://rahyaar.org/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Rahyaar: mentorship, free and private" />
+<meta property="og:locale" content="fa_AF" />
+<meta property="og:locale:alternate" content="en_US" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23475569'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%237C3AED'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%23334155'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23475569'/%3E%3C/svg%3E" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Rahyaar: Mentorship for Hazara students and young professionals" />
+<meta name="twitter:description" content="Free, private mentorship in Dari and English." />
+<meta name="twitter:image" content="https://rahyaar.org/og-image.png" />
+
+<meta name="theme-color" content="#0C333D" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23E6A23C'/%3E%3Cpath d='M16 7l3 7-3 2-3-2z' fill='%230C333D'/%3E%3Cpath d='M16 25l-3-7 3-2 3 2z' fill='%23103F4A'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Rahyaar",
+  "url": "https://rahyaar.org/",
+  "email": "contact@rahyaar.org",
+  "description": "Free, private, bilingual mentorship connecting Hazara students and young professionals with mentors who have walked the same path.",
+  "logo": "https://rahyaar.org/og-image.png",
+  "inLanguage": ["prs", "en"]
+}
+</script>
 
 <style>
-  :root {
-    --primary:      #334155;
-    --primary-light: #475569;
-    --accent:       #7C3AED;
-    --accent-light: #A78BFA;
-    --background:   #F8FAFC;
-    --surface:      #FFFFFF;
-    --text:         #1E293B;
-    --text-light:   #64748B;
-    --border:       #E2E8F0;
-    --shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md:    0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg:    0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl:    0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    --sans:         "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --serif:        "Sora", system-ui, sans-serif;
-    --farsi:        "Vazirmatn", system-ui, sans-serif;
-  }
-
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-
-  body {
-    background: var(--background);
-    color: var(--text);
-    font-family: var(--sans);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Header & Navigation */
-  header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 1.5rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .header-wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    transition: color 0.2s;
-  }
-
-  .logo:hover {
-    color: var(--accent);
-  }
-
-  .logo-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent);
-    border-radius: 8px;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .lang-toggle {
-    display: inline-flex;
-    gap: 0;
-    padding: 4px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: var(--background);
-  }
-
-  .lang-btn {
-    font-family: var(--sans);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text-light);
-    background: transparent;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 0.875rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .lang-btn[aria-pressed="true"] {
-    color: white;
-    background: var(--accent);
-  }
-
-  .lang-btn:hover:not([aria-pressed="true"]) {
-    color: var(--text);
-  }
-
-  /* Hero Section */
-  .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white;
-    padding: 5rem 1.5rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -20%;
-    left: -5%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .hero-content {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-mark {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 2.5rem;
-    animation: float 3s ease-in-out infinite;
-  }
-
-  .hero-mark svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-  }
-
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    margin: 0 0 1.25rem;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-  }
-
-  .hero p {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 700px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.8;
-    font-weight: 500;
-  }
-
-  /* CTA Buttons */
-  .cta-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
-
-  .btn {
-    font-family: var(--sans);
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--shadow-md);
-    min-height: 48px;
-  }
-
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .btn:active {
-    transform: translateY(0);
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: white;
-  }
-
-  .btn-primary:hover {
-    background: var(--accent-light);
-    box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.3);
-  }
-
-  .btn-secondary {
-    background: white;
-    color: var(--accent);
-    border: 2px solid white;
-  }
-
-  .btn-secondary:hover {
-    background: var(--background);
-    color: var(--primary);
-  }
-
-  /* Sections */
-  .section {
-    padding: 5rem 1.5rem;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(1.875rem, 4vw, 2.8rem);
-    font-weight: 700;
-    text-align: center;
-    margin: 0 0 0.5rem;
-    color: var(--primary);
-    letter-spacing: -0.02em;
-  }
-
-  .section-subtitle {
-    text-align: center;
-    color: var(--text-light);
-    margin: 0 0 3rem;
-    font-size: 1.0625rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Features Grid */
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-  }
-
-  .feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .feature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--accent);
-  }
-
-  .feature-icon {
-    width: 64px;
-    height: 64px;
-    background: var(--accent);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
-  }
-
-  .feature-card h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin: 0 0 0.75rem;
-    color: var(--primary);
-    letter-spacing: -0.01em;
-  }
-
-  .feature-card p {
-    color: var(--text-light);
-    margin: 0;
-    line-height: 1.8;
-    font-size: 0.9375rem;
-  }
-
-  /* Stats Section */
-  .stats {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white;
-    padding: 4rem 1.5rem;
-    margin-top: 2rem;
-    border-radius: 16px;
-  }
-
-  .stats-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .stat-item h4 {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-family: var(--serif);
-    margin: 0 0 0.5rem;
-    color: var(--accent-light);
-    font-weight: 700;
-  }
-
-  .stat-item p {
-    margin: 0;
-    opacity: 0.95;
-    font-weight: 500;
-  }
-
-  /* Footer */
-  footer {
-    background: var(--primary);
-    color: white;
-    padding: 4rem 1.5rem;
-    margin-top: 4rem;
-  }
-
-  .footer-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
-    margin-bottom: 2rem;
-  }
-
-  .footer-section h3 {
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin: 0 0 1.25rem;
-    color: var(--accent-light);
-  }
-
-  .footer-section p {
-    margin: 0 0 1rem;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.7;
-  }
-
-  .footer-section a {
-    display: block;
-    margin: 0 0 0.75rem;
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-section a:hover {
-    color: var(--accent-light);
-  }
-
-  .footer-bottom {
-    max-width: 1400px;
-    margin: 0 auto;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 2rem;
-    text-align: center;
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .contact-highlight {
-    background: rgba(124, 58, 237, 0.15);
-    border-left: 4px solid var(--accent-light);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-top: 1.5rem;
-  }
-
-  .contact-highlight p {
-    margin: 0 0 0.5rem;
-    font-weight: 600;
-  }
-
-  .contact-highlight a {
-    color: var(--accent-light) !important;
-    font-weight: 700;
-    font-size: 1.0625rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .header-wrapper {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .nav-right {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .cta-group {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .btn {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .hero {
-      padding: 3rem 1.5rem;
-    }
-
-    .section {
-      padding: 3rem 1.5rem;
-    }
-
-    .footer-content {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* Dark mode support */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: #0F172A;
-      --surface: #1E293B;
-      --text: #F1F5F9;
-      --text-light: #94A3B8;
-      --border: #334155;
-    }
-
-    header {
-      background: var(--surface);
-      border-bottom-color: var(--border);
-    }
-
-    .feature-card {
-      background: var(--surface);
-      border-color: var(--border);
-    }
-
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--accent);
-      border-color: var(--border);
-    }
-
-    .btn-secondary:hover {
-      background: var(--border);
-    }
-  }
-
-  /* Animations */
-  .fade-in {
-    animation: fadeIn 0.6s ease-in;
-  }
-
-  @keyframes fadeIn {
-    from { 
-      opacity: 0; 
-      transform: translateY(20px); 
-    }
-    to { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
-  }
-
-  /* Farsi Styles */
-  body.fa {
-    font-family: var(--farsi);
-    direction: rtl;
-  }
-
-  body.fa .hero h1,
-  body.fa .section-title {
-    font-family: var(--farsi);
-  }
-
-  body.fa .feature-card h3 {
-    font-family: var(--farsi);
-  }
-
-  body.fa .footer-section h3 {
-    font-family: var(--farsi);
-  }
+:root{
+  --ink:#0C333D;--ink2:#103F4A;--amber:#E6A23C;--amber2:#F0B457;
+  --paper:#F6FAFB;--card:#FFFFFF;--line:#DCE5E8;--text:#17303A;--muted:#5E7580;
+  --serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",system-ui,sans-serif;
+  --persian:"Vazirmatn","Noto Naskh Arabic",Tahoma,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--text);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* Skip link */
+.skip-link{position:absolute;inset-inline-start:-9999px;top:0;z-index:200;background:var(--ink);color:#fff;padding:.6rem 1rem;border-radius:0 0 8px 0;font-weight:600;text-decoration:none}
+.skip-link:focus{inset-inline-start:0}
+
+/* Header */
+.site{position:sticky;top:0;z-index:100;background:rgba(246,250,251,.92);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1080px;margin:0 auto;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink)}
+.brand .mk{width:34px;height:34px;flex:none}
+.brand .mk svg{display:block;width:100%;height:100%}
+.brand .wm{font-family:var(--serif);font-weight:600;font-size:1.3rem;letter-spacing:-.01em}
+.lang{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--ink)}
+.lang-btn{font-family:var(--sans);font-size:.8rem;font-weight:600;color:#CFE0E6;background:transparent;border:none;border-radius:999px;padding:.35rem .8rem;line-height:1;cursor:pointer}
+.lang-btn[data-lang="fa"]{font-family:var(--persian)}
+.lang-btn[aria-pressed="true"]{color:var(--ink);background:var(--amber)}
+.lang-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(230,162,60,.4)}
+
+/* Hero */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-block-start:-30%;inset-inline-end:-10%;width:520px;height:520px;background:radial-gradient(circle,rgba(230,162,60,.12),transparent 68%);pointer-events:none}
+.hero-inner{max-width:1080px;margin:0 auto;padding:4.5rem 1.25rem 4rem;position:relative;z-index:1;text-align:center}
+.hero .mark{width:64px;height:64px;margin:0 auto 1.4rem}
+.hero .mark svg{display:block;width:100%;height:100%}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,5.2vw,3.4rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 1rem;max-width:18ch;margin-inline:auto}
+.hero .lede{color:#CFE0E6;font-size:clamp(1.02rem,2vw,1.18rem);line-height:1.75;max-width:52ch;margin:0 auto 2rem}
+.cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.btn{font-family:var(--sans);font-size:1.02rem;font-weight:600;padding:.85rem 1.5rem;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;min-height:48px;border:2px solid transparent;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+.btn-primary{background:var(--amber);color:var(--ink)}
+.btn-primary:hover{background:var(--amber2)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(230,162,60,.45)}
+
+/* Sections */
+.wrap{max-width:1080px;margin:0 auto;padding:4rem 1.25rem}
+.eyebrow{font-family:var(--sans);font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:0 0 .5rem}
+.h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);letter-spacing:-.015em;color:var(--ink);margin:0 0 .6rem}
+.sub{color:var(--muted);font-size:1.02rem;max-width:56ch;margin:0 0 2.2rem}
+
+/* Value grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.4rem}
+.card .tag{display:block;width:26px;height:4px;border-radius:2px;background:var(--amber);margin-bottom:1rem}
+.card h3{font-family:var(--serif);font-weight:600;font-size:1.16rem;color:var(--ink);margin:0 0 .5rem}
+.card p{color:var(--muted);font-size:.95rem;line-height:1.7;margin:0}
+
+/* Journeys */
+.journeys{background:var(--card);border-block:1px solid var(--line)}
+.tracks{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;gap:.2rem;max-width:640px}
+.tracks li{display:flex;align-items:baseline;gap:.85rem;padding:1rem .2rem;border-bottom:1px solid var(--line)}
+.tracks li:last-child{border-bottom:0}
+.tracks .arw{display:inline-block;color:var(--amber);font-weight:700;flex:none;line-height:1.6}
+.tracks .t{font-weight:600;color:var(--ink);font-size:1.05rem}
+
+/* Note */
+.note{background:#EAF4F6;border:1px solid #CFE6EA;border-radius:12px;padding:1.3rem 1.4rem;color:var(--ink);max-width:720px}
+.note strong{display:block;font-family:var(--serif);font-size:1.12rem;margin-bottom:.35rem}
+.note p{margin:0;color:var(--ink2);line-height:1.7;font-size:.97rem}
+
+/* Closing CTA */
+.close{background:var(--ink);color:#fff;text-align:center}
+.close .h2{color:#fff}
+.close .sub{color:#CFE0E6;margin-inline:auto;margin-bottom:2rem}
+
+/* Footer */
+footer{background:var(--ink2);color:#EAF1F3;padding:3rem 1.25rem}
+.foot{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+.foot h4{font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:0 0 .9rem}
+.foot p{color:#CFE0E6;line-height:1.7;margin:0 0 .6rem;font-size:.95rem}
+.foot a{display:inline-block;color:#EAF1F3;text-decoration:none;margin:0 0 .5rem;font-size:.95rem}
+.foot a:hover{color:var(--amber)}
+.foot .mail{color:var(--amber);font-weight:600}
+.foot-btm{max-width:1080px;margin:2rem auto 0;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.12);color:#9FB6BE;font-size:.85rem;text-align:center}
+
+/* RTL / Dari */
+body.fa{font-family:var(--persian);direction:rtl}
+body.fa .brand .wm,
+body.fa .hero h1,
+body.fa .h2,
+body.fa .card h3,
+body.fa .note strong,
+body.fa .thanks h2{font-family:var(--persian)}
+body.fa .btn,body.fa .lang-btn,body.fa .eyebrow,body.fa .foot h4{font-family:var(--persian)}
+body.fa .tracks .t,body.fa .sub,body.fa .card p,body.fa .note p{line-height:1.85}
+body.fa .tracks .arw{transform:scaleX(-1)}
+
+@media (max-width:640px){
+  .hero-inner{padding:3.2rem 1.25rem 3rem}
+  .wrap{padding:3rem 1.25rem}
+  .cta-row{flex-direction:column}
+  .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="header-wrapper">
-      <a href="/" class="logo">
-        <div class="logo-icon">
-          <svg viewBox="0 0 96 96" width="32" height="32">
-            <circle cx="48" cy="48" r="46" fill="white" opacity="0.2"/>
-            <path d="M48 20 L57 48 L48 55 L39 48 Z" fill="white"/>
-            <path d="M48 76 L39 48 L48 55 L57 48 Z" fill="white" opacity="0.8"/>
-          </svg>
-        </div>
-        <span>Rahyaar</span>
-      </a>
-      <div class="nav-right">
-        <div class="lang-toggle" role="group" aria-label="Language">
-          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">English</button>
-          <button type="button" class="lang-btn" data-lang="fa" aria-pressed="false">فارسی</button>
-        </div>
-      </div>
-    </div>
-  </header>
+<a class="skip-link" href="#main" data-en="Skip to content" data-fa="رفتن به محتوا">Skip to content</a>
 
-  <!-- Hero Section -->
+<header class="site">
+  <div class="bar">
+    <a href="/" class="brand" aria-label="Rahyaar">
+      <span class="mk" aria-hidden="true">
+        <svg viewBox="0 0 96 96"><circle cx="48" cy="48" r="46" fill="#E6A23C"/><path d="M48 20 L57 48 L48 55 L39 48 Z" fill="#0C333D"/><path d="M48 76 L39 48 L48 55 L57 48 Z" fill="#103F4A"/><circle cx="48" cy="48" r="4" fill="#E6A23C" stroke="#0C333D" stroke-width="2"/></svg>
+      </span>
+      <span class="wm" data-en="Rahyaar" data-fa="رهیار">Rahyaar</span>
+    </a>
+    <div class="lang" role="group" aria-label="Language / زبان">
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" class="lang-btn" data-lang="fa" aria-pressed="false">دری</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
   <section class="hero">
-    <div class="hero-content fade-in">
-      <div class="hero-mark" aria-hidden="true">
-        <svg viewBox="0 0 96 96">
-          <circle cx="48" cy="48" r="46" fill="#7C3AED"/>
-          <path d="M48 20 L57 48 L48 55 L39 48 Z" fill="#475569"/>
-          <path d="M48 76 L39 48 L48 55 L57 48 Z" fill="#334155"/>
-          <circle cx="48" cy="48" r="4" fill="#7C3AED" stroke="#FFF" stroke-width="2"/>
-        </svg>
+    <div class="hero-inner">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 96 96"><circle cx="48" cy="48" r="46" fill="#E6A23C"/><path d="M48 20 L57 48 L48 55 L39 48 Z" fill="#0C333D"/><path d="M48 76 L39 48 L48 55 L57 48 Z" fill="#103F4A"/><circle cx="48" cy="48" r="4" fill="#E6A23C" stroke="#0C333D" stroke-width="2"/></svg>
       </div>
-      
-      <h1 data-en="Find Your Path Forward" data-fa="مسیر موفقیت خود را بیابید">Find Your Path Forward</h1>
-      <p data-en="Connect with experienced mentors who have walked your path. Get free, private guidance in Farsi or English." data-fa="با مربیان با تجربه‌ای که مسیر شما را طی کرده‌اند ارتباط برقرار کنید. راهنمایی رایگان و محرمانه به فارسی یا انگلیسی دریافت کنید.">Connect with experienced mentors who have walked your path. Get free, private guidance in Farsi or English.</p>
-      
-      <div class="cta-group">
-        <a href="/mentee-form.html" class="btn btn-primary" data-en="Find a Mentor →" data-fa="← پیدا کردن مربی">Find a Mentor →</a>
-        <a href="/mentor-form.html" class="btn btn-secondary" data-en="Become a Mentor →" data-fa="← تبدیل شدن به مربی">Become a Mentor →</a>
+      <h1 data-en="Find the path forward, with someone who has walked it" data-fa="مسیر پیش رو را با کسی پیدا کنید که همان راه را رفته است">Find the path forward, with someone who has walked it</h1>
+      <p class="lede" data-en="Rahyaar connects Hazara students and young professionals with mentors who understand the road. Free, and private." data-fa="رهیار دانشجویان و جوانان حرفه‌ای هزاره را با مربیانی جور می‌کند که این راه را می‌شناسند. رایگان و خصوصی.">Rahyaar connects Hazara students and young professionals with mentors who understand the road. Free, and private.</p>
+      <div class="cta-row">
+        <a href="/mentee-form.html" class="btn btn-primary" data-en="Find a mentor" data-fa="مربی پیدا کنید">Find a mentor</a>
+        <a href="/mentor-form.html" class="btn btn-ghost" data-en="Become a mentor" data-fa="مربی شوید">Become a mentor</a>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="section">
-    <h2 class="section-title" data-en="Why Choose Rahyaar?" data-fa="چرا رهیار را انتخاب کنید؟">Why Choose Rahyaar?</h2>
-    <p class="section-subtitle" data-en="Designed for your success" data-fa="برای موفقیت شما طراحی شده است">Designed for your success</p>
-    
-    <div class="features-grid">
-      <div class="feature-card fade-in">
-        <div class="feature-icon">🔒</div>
-        <h3 data-en="100% Private & Secure" data-fa="۱۰۰% محرمانه و امن">100% Private & Secure</h3>
-        <p data-en="Your privacy is paramount. Share only what you're comfortable with—no real names required." data-fa="حریم خصوصی شما برای ما اولویت است. تنها آنچه راحت هستید به اشتراک بگذارید و نام واقعی لازم نیست.">Your privacy is paramount. Share only what you're comfortable with—no real names required.</p>
+  <section class="wrap">
+    <p class="eyebrow" data-en="Why Rahyaar" data-fa="چرا رهیار">Why Rahyaar</p>
+    <h2 class="h2" data-en="Built around who gets helped" data-fa="ساخته‌شده بر محور کسی که کمک می‌گیرد">Built around who gets helped</h2>
+    <p class="sub" data-en="A few things we hold to, on every match." data-fa="چند اصلی که در هر جور کردن به آن پایبندیم.">A few things we hold to, on every match.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="tag" aria-hidden="true"></span>
+        <h3 data-en="Private by default" data-fa="خصوصی به‌صورت پیش‌فرض">Private by default</h3>
+        <p data-en="You do not need to use your real name, and you never have to share anything that identifies you." data-fa="لازم نیست نام واقعی‌تان را بنویسید و هرگز مجبور نیستید چیزی که شما را شناسایی کند به اشتراک بگذارید.">You do not need to use your real name, and you never have to share anything that identifies you.</p>
       </div>
-      
-      <div class="feature-card fade-in">
-        <div class="feature-icon">💰</div>
-        <h3 data-en="Completely Free" data-fa="کاملاً رایگان">Completely Free</h3>
-        <p data-en="No hidden costs or subscription fees. Quality mentorship should be accessible to everyone." data-fa="بدون هزینه پنهان یا هزینه‌های اشتراکی. مربی‌گری درجه‌ی اول باید برای همه قابل دسترسی باشد.">No hidden costs or subscription fees. Quality mentorship should be accessible to everyone.</p>
+      <div class="card">
+        <span class="tag" aria-hidden="true"></span>
+        <h3 data-en="Free, always" data-fa="همیشه رایگان">Free, always</h3>
+        <p data-en="No fees and no subscriptions. All you need is an email so a mentor can reach you." data-fa="بدون هزینه و بدون اشتراک. فقط به یک ایمیل نیاز دارید تا مربی بتواند با شما در تماس شود.">No fees and no subscriptions. All you need is an email so a mentor can reach you.</p>
       </div>
-      
-      <div class="feature-card fade-in">
-        <div class="feature-icon">🌍</div>
-        <h3 data-en="Bilingual Support" data-fa="پشتیبانی دو‌زبانه">Bilingual Support</h3>
-        <p data-en="Communicate fluently in Farsi or English. Matched mentors speak your preferred language." data-fa="به راحتی به فارسی یا انگلیسی ارتباط برقرار کنید. مربیان از شما در زبان ترجیح‌شده‌تان سخن می‌رانند.">Communicate fluently in Farsi or English. Matched mentors speak your preferred language.</p>
+      <div class="card">
+        <span class="tag" aria-hidden="true"></span>
+        <h3 data-en="Dari and English" data-fa="دری و انگلیسی">Dari and English</h3>
+        <p data-en="Ask for the language you are most comfortable in, and we match a mentor who speaks it." data-fa="زبانی را که در آن راحت‌تر هستید انتخاب کنید و ما مربی‌ای را که به آن صحبت می‌کند جور می‌کنیم.">Ask for the language you are most comfortable in, and we match a mentor who speaks it.</p>
       </div>
-      
-      <div class="feature-card fade-in">
-        <div class="feature-icon">✅</div>
-        <h3 data-en="Vetted Mentors" data-fa="مربیان تأیید‌شده">Vetted Mentors</h3>
-        <p data-en="Every mentor is carefully verified with real professional experience. Mentorship you can trust." data-fa="هر مربی به دقت بررسی‌شده و دارای تجربه‌ی حرفه‌ای واقعی است. مربی‌گری که می‌توانید به آن اعتماد کنید.">Every mentor is carefully verified with real professional experience. Mentorship you can trust.</p>
-      </div>
-      
-      <div class="feature-card fade-in">
-        <div class="feature-icon">🎯</div>
-        <h3 data-en="Goal-Oriented" data-fa="محور‌شده بر اهداف">Goal-Oriented</h3>
-        <p data-en="Whether education, career change, or migration—we match you with someone who understands your journey." data-fa="چه تحصیل، تغییر شغل، یا مهاجرت—ما شما را با کسی هم‌سان می‌کنیم که سفرتان را درک کند.">Whether education, career change, or migration—we match you with someone who understands your journey.</p>
-      </div>
-      
-      <div class="feature-card fade-in">
-        <div class="feature-icon">🤝</div>
-        <h3 data-en="Community-Driven" data-fa="سازمان‌دهی توسط جامعه">Community-Driven</h3>
-        <p data-en="Built by and for the Hazara community. Supporting your dreams and ambitions." data-fa="ساخته‌شده توسط و برای جامعه هزاره. حمایت از رویاهای و آرمان‌های شما.">Built by and for the Hazara community. Supporting your dreams and ambitions.</p>
+      <div class="card">
+        <span class="tag" aria-hidden="true"></span>
+        <h3 data-en="Vetted mentors" data-fa="مربیان تأییدشده">Vetted mentors</h3>
+        <p data-en="Every mentor is verified with a LinkedIn profile and five endorsers before any match is made." data-fa="هر مربی پیش از هر جور کردن، با پروفایل لینکدین و پنج معرف تأیید می‌شود.">Every mentor is verified with a LinkedIn profile and five endorsers before any match is made.</p>
       </div>
     </div>
   </section>
 
-  <!-- Stats Section -->
-  <section class="section">
-    <div class="stats">
-      <div class="stats-content">
-        <div class="stat-item">
-          <h4 data-en="100%" data-fa="۱۰۰%">100%</h4>
-          <p data-en="Free mentorship" data-fa="مربی‌گری رایگان">Free mentorship</p>
-        </div>
-        <div class="stat-item">
-          <h4 data-en="2 Languages" data-fa="۲ زبان">2 Languages</h4>
-          <p data-en="Farsi & English" data-fa="فارسی و انگلیسی">Farsi & English</p>
-        </div>
-        <div class="stat-item">
-          <h4 data-en="Confidential" data-fa="محتفظ">Confidential</h4>
-          <p data-en="Your choice matters" data-fa="انتخاب شما اهمیت دارد">Your choice matters</p>
-        </div>
-        <div class="stat-item">
-          <h4 data-en="Expert Verified" data-fa="تأیید‌شده توسط متخصصان">Expert Verified</h4>
-          <p data-en="All mentors vetted" data-fa="تمام مربیان بررسی‌شده">All mentors vetted</p>
-        </div>
-      </div>
+  <section class="journeys">
+    <div class="wrap">
+      <p class="eyebrow" data-en="The journeys we support" data-fa="مسیرهایی که پشتیبانی می‌کنیم">The journeys we support</p>
+      <h2 class="h2" data-en="Wherever you are on the road" data-fa="هر جای این راه که هستید">Wherever you are on the road</h2>
+      <p class="sub" data-en="Tell us your goal and we match you with a mentor who has made the same move." data-fa="هدف‌تان را بگویید تا شما را با مربی‌ای جور کنیم که همین مسیر را طی کرده است.">Tell us your goal and we match you with a mentor who has made the same move.</p>
+      <ul class="tracks">
+        <li><span class="arw" aria-hidden="true">→</span> <span class="t" data-en="School to university" data-fa="از مکتب تا دانشگاه">School to university</span></li>
+        <li><span class="arw" aria-hidden="true">→</span> <span class="t" data-en="Undergraduate to master's or work" data-fa="از لیسانس تا ماستری یا کار">Undergraduate to master's or work</span></li>
+        <li><span class="arw" aria-hidden="true">→</span> <span class="t" data-en="Master's to PhD or work" data-fa="از ماستری تا دکترا یا کار">Master's to PhD or work</span></li>
+        <li><span class="arw" aria-hidden="true">→</span> <span class="t" data-en="Changing careers" data-fa="تغییر مسیر شغلی">Changing careers</span></li>
+        <li><span class="arw" aria-hidden="true">→</span> <span class="t" data-en="Skilled migration" data-fa="مهاجرت تخصصی">Skilled migration</span></li>
+      </ul>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3 data-en="About Rahyaar" data-fa="درباره رهیار">About Rahyaar</h3>
-        <p data-en="Connecting talented students and young professionals with mentors who've been through it all. Your success is our mission." data-fa="دانش‌آموزان با استعداد و جوانان حرفه‌ای را با مربیانی متصل می‌کنیم که از هر چیزی گذشته‌اند. موفقیت شما مأموریت ما است.">Connecting talented students and young professionals with mentors who've been through it all. Your success is our mission.</p>
-      </div>
-      
-      <div class="footer-section">
-        <h3 data-en="Quick Links" data-fa="پیوندهای سریع">Quick Links</h3>
-        <a href="/mentee-form.html" data-en="Find a Mentor" data-fa="پیدا کردن مربی">Find a Mentor</a>
-        <a href="/mentor-form.html" data-en="Become a Mentor" data-fa="تبدیل شدن به مربی">Become a Mentor</a>
-        <a href="/" data-en="Home" data-fa="صفحه اصلی">Home</a>
-      </div>
-      
-      <div class="footer-section">
-        <h3 data-en="Get in Touch" data-fa="تماس بگیرید">Get in Touch</h3>
-        <div class="contact-highlight">
-          <p data-en="Have questions?" data-fa="سؤالی دارید؟">Have questions?</p>
-          <a href="mailto:contact@rahyaar.org">contact@rahyaar.org</a>
-        </div>
+  <section class="wrap">
+    <div class="note">
+      <strong data-en="Your privacy comes first" data-fa="حریم خصوصی شما در اولویت است">Your privacy comes first</strong>
+      <p data-en="This is a space built by and for the Hazara community, and open to mentors of any background who want to help. What you share is up to you, and it stays private." data-fa="این فضایی است که توسط و برای جامعه هزاره ساخته شده و به روی مربیانی از هر پیشینه که بخواهند کمک کنند باز است. آنچه به اشتراک می‌گذارید به خودتان بستگی دارد و محرمانه می‌ماند.">This is a space built by and for the Hazara community, and open to mentors of any background who want to help. What you share is up to you, and it stays private.</p>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <h2 class="h2" data-en="Ready to take the next step?" data-fa="آماده‌اید گام بعدی را بردارید؟">Ready to take the next step?</h2>
+      <p class="sub" data-en="It takes a few minutes, and you can start small." data-fa="چند دقیقه وقت می‌گیرد و می‌توانید کوچک شروع کنید.">It takes a few minutes, and you can start small.</p>
+      <div class="cta-row">
+        <a href="/mentee-form.html" class="btn btn-primary" data-en="Find a mentor" data-fa="مربی پیدا کنید">Find a mentor</a>
+        <a href="/mentor-form.html" class="btn btn-ghost" data-en="Become a mentor" data-fa="مربی شوید">Become a mentor</a>
       </div>
     </div>
-    
-    <div class="footer-bottom">
-      <p>© 2026 Rahyaar. <span data-en="All rights reserved." data-fa="تمام حقوق محفوظ است.">All rights reserved.</span></p>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <h4 data-en="About Rahyaar" data-fa="درباره رهیار">About Rahyaar</h4>
+      <p data-en="Free, private, bilingual mentorship connecting Hazara students and young professionals with mentors who have walked the same path." data-fa="مربی‌گری رایگان، خصوصی و دوزبانه که دانشجویان و جوانان حرفه‌ای هزاره را با مربیانی که همین راه را رفته‌اند جور می‌کند.">Free, private, bilingual mentorship connecting Hazara students and young professionals with mentors who have walked the same path.</p>
     </div>
-  </footer>
+    <div>
+      <h4 data-en="Get started" data-fa="شروع کنید">Get started</h4>
+      <a href="/mentee-form.html" data-en="Find a mentor" data-fa="مربی پیدا کنید">Find a mentor</a><br>
+      <a href="/mentor-form.html" data-en="Become a mentor" data-fa="مربی شوید">Become a mentor</a>
+    </div>
+    <div>
+      <h4 data-en="Contact" data-fa="تماس">Contact</h4>
+      <p data-en="Questions? We would be glad to hear from you." data-fa="سؤالی دارید؟ خوشحال می‌شویم از شما بشنویم.">Questions? We would be glad to hear from you.</p>
+      <a class="mail" href="mailto:contact@rahyaar.org">contact@rahyaar.org</a>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <span>© 2026 Rahyaar. </span><span data-en="All rights reserved." data-fa="تمام حقوق محفوظ است.">All rights reserved.</span>
+  </div>
+</footer>
 
 <script>
-  (function () {
-    const btns = Array.prototype.slice.call(document.querySelectorAll('[data-lang]'));
-    const nodes = Array.prototype.slice.call(document.querySelectorAll('[data-en]'));
-    
-    function setLang(lang) {
-      const fa = lang === 'fa';
-      document.documentElement.lang = fa ? 'fa' : 'en';
-      document.documentElement.dir = fa ? 'rtl' : 'ltr';
-      document.body.classList.toggle('fa', fa);
-      
-      nodes.forEach(function (n) { 
-        n.textContent = fa ? n.getAttribute('data-fa') : n.getAttribute('data-en');
-      });
-      
-      btns.forEach(function (b) { 
-        b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); 
-      });
-      
-      document.title = fa ? 'رهیار — پلتفرم مربی‌گری' : 'Rahyaar — Mentorship Platform';
-    }
-    
-    btns.forEach(function (b) { 
-      b.addEventListener('click', function () { 
-        setLang(b.getAttribute('data-lang')); 
-      }); 
-    });
-    
-    const nav = (navigator.language || '').toLowerCase();
-    setLang(/^fa/.test(nav) ? 'fa' : 'en');
-  })();
+(function () {
+  var nodes = Array.prototype.slice.call(document.querySelectorAll("[data-en]"));
+  var btns = Array.prototype.slice.call(document.querySelectorAll(".lang-btn"));
+  function setLang(l) {
+    var fa = l === "fa";
+    document.documentElement.lang = fa ? "prs" : "en";
+    document.documentElement.dir = fa ? "rtl" : "ltr";
+    document.body.classList.toggle("fa", fa);
+    nodes.forEach(function (n) { n.textContent = fa ? n.getAttribute("data-fa") : n.getAttribute("data-en"); });
+    btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l)); });
+    document.title = fa ? "رهیار: مربی‌گری برای دانشجویان و جوانان هزاره" : "Rahyaar: Mentorship for Hazara students and young professionals";
+  }
+  btns.forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); }); });
+  var nav = (navigator.language || "").toLowerCase();
+  setLang(/^(fa|prs)/.test(nav) ? "fa" : "en");
+})();
 </script>
 </body>
 </html>
